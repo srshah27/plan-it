@@ -101,7 +101,6 @@ html {
   .content-container {
     @apply flex flex-col 
     bg-gray-700
-    shadow-xl
     m-0 
     w-screen 
     h-screen
@@ -185,6 +184,7 @@ html {
   .channel-container {
     @apply flex flex-col items-center justify-start 
    bg-custom-white
+   shadow-md
     p-1 m-0;
   }
 
