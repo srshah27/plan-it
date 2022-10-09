@@ -14,7 +14,7 @@ module.exports = {
       'custom-yellow': "#F9BC60",
       'custom-blue': "#5271FF",
       'custom-white': "#F5F5F5",
-      'custom-gray': "#F0F0F0",
+      'custom-gray': "#E0E0E0",
     }
     },
     fontFamily:{
