@@ -53,7 +53,7 @@ html {
 
   .top-navigation {
     @apply flex flex-row items-center justify-evenly 
-    bg-gray-300 dark:bg-gray-700 bg-opacity-90 
+    bg-custom-white bg-opacity-90 
     w-full h-16 
     m-0 
     shadow-lg;
@@ -77,14 +77,14 @@ html {
   }
 
   .title-text {
-    @apply text-xl text-gray-500 tracking-wider font-semibold text-opacity-80 
+    @apply text-xl text-gray-800 tracking-wider font-semibold text-opacity-80 
     mr-auto ml-2 my-auto 
     transition duration-300 ease-in-out;
   }
 
   .search {
     @apply w-1/5 flex items-center justify-start 
-    bg-gray-400 dark:bg-gray-600
+    bg-gray-50
     text-gray-500
     px-2 h-9 ml-0 mr-0 
     rounded-md shadow-md
@@ -100,7 +100,7 @@ html {
 
   .content-container {
     @apply flex flex-col 
-    bg-gray-100
+    bg-custom-gray
     m-0 
     w-screen 
     h-screen
@@ -109,7 +109,7 @@ html {
 
   .content-list {
     @apply flex flex-col items-center 
-    h-full w-full 
+    h-full w-full
     mt-0 ml-0 mx-auto px-0 pb-12 
     overflow-y-scroll;
   }
@@ -133,7 +133,7 @@ html {
   }
 
   .post-text {
-    @apply text-lg text-left text-gray-800 dark:text-white 
+    @apply text-lg text-left text-gray-800
     mr-auto whitespace-normal;
   }
 
@@ -192,7 +192,7 @@ html {
     @apply flex items-center justify-center 
     h-16 
     w-screen
-    z-10
+
     m-0 p-0;
   }
 

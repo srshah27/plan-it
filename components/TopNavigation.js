@@ -11,7 +11,7 @@ import useDarkMode from '../hooks/useDarkMode';
 const TopNavigation = () => {
     return (
         <div className='top-navigation'>
-            <HashtagIcon />
+            {/* <HashtagIcon /> */}
             <Title />
             <ThemeIcon />
             <Search />
@@ -43,7 +43,7 @@ const Search = () => (
 );
 const BellIcon = () => <FaRegBell size='24' className='top-navigation-icon' />;
 const UserCircle = () => <FaUserCircle size='24' className='top-navigation-icon' />;
-const HashtagIcon = () => <FaHashtag size='20' className='title-hashtag' />;
-const Title = () => <h5 className='title-text'>tailwind-css</h5>;
+// const HashtagIcon = () => <FaHashtag size='20' className='title-hashtag' />;
+const Title = () => <h5 className='title-text'>Plan-it!</h5>;
 
 export default TopNavigation;
