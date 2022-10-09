@@ -14,37 +14,6 @@ html {
 }
 
 @layer components {
-  .sidebar-icon {
-    @apply relative flex items-center justify-center 
-    h-12 w-12 mt-2 mb-2 mx-auto  
-    bg-custom-cream2 hover:bg-custom-green
-    text-[#009B9A] hover:text-[#F5F5F5]
-    hover:rounded-xl rounded-3xl
-    transition-all duration-300 ease-linear
-    cursor-pointer shadow-lg ;
-  }
-  
-  .sidebar-logo {
-    @apply relative flex items-center justify-center 
-    h-12 w-12 mt-2 mb-2 mx-auto  
-    text-custom-green hover:text-custom-cream
-    transition-all duration-300 ease-linear
-    cursor-pointer ;
-  }
-
-  .sidebar-tooltip {
-    @apply absolute w-auto p-2 m-2 min-w-max left-14 rounded-md shadow-md
-    text-custom-cream bg-custom-green
-    text-xs font-bold 
-    transition-all duration-100 scale-0 origin-left;
-  }
-
-  .sidebar-hr {
-    @apply bg-gray-300
-    border border-gray-300 rounded-full
-    mx-2;
-  }
-  
   .content-hr {
     @apply bg-gray-800 
     border border-gray-800 rounded-full
@@ -226,7 +195,7 @@ html {
   .dropdown-selection {
     @apply flex flex-row items-center justify-evenly
     mt-1 mr-auto ml-2
-    transition duration-300 ease-in-out
+    transition duration-700 ease-in-out
     cursor-pointer;
   }
 

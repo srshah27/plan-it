@@ -7,7 +7,7 @@ const tomorrow = ['Kill Me', 'Presentation'];
 const ChannelBar = () => {
     return (
         <div className='channel-bar shadow-lg'>
-            <ChannelBlock />
+            <CurDate />
             < Divider />
             <div className='channel-container'>
                 <Dropdown header=" Today's Tasks" selections={today} />
@@ -54,7 +54,7 @@ const TopicSelection = ({ selection }) => (
     </div>
 );
 
-const ChannelBlock = () => (
+const CurDate = () => (
     
     <div className='channel-block'>
         <h5 className='channel-block-text'>{new Date().toLocaleString("en-US", { month: "long" })}, { new Date().toLocaleString("en-US", { day : '2-digit'}) }</h5>

@@ -1,7 +1,8 @@
-import { BsPlus, BsCalendar2Event, BsGearFill } from 'react-icons/bs';
+import { BsPlus, BsCalendar2Event} from 'react-icons/bs';
 import { IoMdCheckmark } from 'react-icons/io';
 import { FiSettings } from 'react-icons/fi';
 import Image from 'next/image'
+import styles from '../styles/SideBar.module.css'
 
 const SideBar = () => {
     return (
@@ -16,7 +17,7 @@ const SideBar = () => {
                 <SideBarIcon icon={<BsCalendar2Event size="24" />} text = {"View"}/>
                 <Divider />
             </div>
-            <div className="fixed left-0 bottom-3 flex flex-col w-16 shadow-lg">
+            <div className="fixed left-0 bottom-0 pb-3 flex flex-col w-16 shadow-lg">
                 <Divider />
                 <SideBarIcon icon={<FiSettings size="22" />} text ={"Settings"} />
             </div>
@@ -26,9 +27,9 @@ const SideBar = () => {
 
 
 const SideBarIcon = ({ icon, text }) => (
-    <div className="sidebar-icon group">
+    <div className={["group", styles.sidebaricon].join(" ")}>
         {icon}
-        <span className="sidebar-tooltip group-hover:scale-100">
+        <span className={["group-hover:scale-100", styles.sidebartooltip].join(" ")}>
             {text}
         </span>
     </div>
@@ -37,12 +38,12 @@ const SideBarIcon = ({ icon, text }) => (
 const SideBarLogo = ({ icon, text = 'Plan-it ' }) => (
     <div className="sidebar-logo group">
         {icon}
-        <span className="sidebar-tooltip group-hover:scale-100">
+        <span className={["group-hover:scale-100", styles.sidebartooltip].join(" ")}>
             {text}
         </span>
     </div>
 );
 
-const Divider = () => <hr className="sidebar-hr" />;
+const Divider = () => <hr className={styles.sidebarhr} />;
 
 export default SideBar;

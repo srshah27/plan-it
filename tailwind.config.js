@@ -1,5 +1,4 @@
 /** @type {import('tailwindcss').Config} */
-const colors = require('tailwindcss/colors')
 module.exports = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx}",
@@ -17,6 +16,7 @@ module.exports = {
       'custom-gray': "#E0E0E0",
     }
     },
+    
     fontFamily:{
       main : ["Nunito", "Poppins"],
     },
