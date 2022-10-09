@@ -7,9 +7,9 @@ const SideBar = () => {
     return (
         <div>
             <div className="fixed top-0 left-0 h-screen w-16 flex flex-col flex-start
-                  bg-white dark:bg-gray-900 shadow-lg">
+                  bg-custom-cream shadow-lg">
 
-                <SideBarIcon icon={<Image src="/img/Planit.svg" width={50} height={40} />} />
+                <SideBarLogo icon={<Image src="/img/Planit.svg" width={75} height={60} />} />
                 <Divider />
                 <SideBarIcon icon={<BsPlus size="32" />} />
                 <SideBarIcon icon={<IoMdCheckmark size="32" />} />
@@ -34,6 +34,14 @@ const SideBarIcon = ({ icon, text = 'tooltip 💡' }) => (
     </div>
 );
 
+const SideBarLogo = ({ icon, text = 'Plan-it ' }) => (
+    <div className="sidebar-logo group">
+        {icon}
+        <span class="sidebar-tooltip group-hover:scale-100">
+            {text}
+        </span>
+    </div>
+);
 
 const Divider = () => <hr className="sidebar-hr" />;
 
