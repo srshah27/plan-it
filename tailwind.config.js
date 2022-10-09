@@ -12,7 +12,8 @@ module.exports = {
       'custom-cream2': "#FDF9F4",
       'custom-green': "#009B9A",
       'custom-yellow': "#F9BC60",
-      'custom-blue': "#000088",
+      'custom-blue': "#5271FF",
+      'custom-white': "#F5F5F5",
     }
     },
     fontFamily:{

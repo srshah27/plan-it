@@ -11,21 +11,21 @@ const SideBar = () => {
 
                 <SideBarLogo icon={<Image src="/img/Planit.svg" width={75} height={60} />} />
                 <Divider />
-                <SideBarIcon icon={<BsPlus size="32" />} />
-                <SideBarIcon icon={<IoMdCheckmark size="32" />} />
-                <SideBarIcon icon={<BsCalendar2Event size="24" />} />
+                <SideBarIcon icon={<BsPlus size="32" />} text ={"Add"} />
+                <SideBarIcon icon={<IoMdCheckmark size="32" />} text ={"Done"} />
+                <SideBarIcon icon={<BsCalendar2Event size="24" />} text = {"View"}/>
                 <Divider />
             </div>
             <div className="fixed left-0 bottom-3 flex flex-col w-16 shadow-lg">
                 <Divider />
-                <SideBarIcon icon={<FiSettings size="22" />} />
+                <SideBarIcon icon={<FiSettings size="22" />} text ={"Settings"} />
             </div>
         </div>
     );
 };
 
 
-const SideBarIcon = ({ icon, text = 'tooltip 💡' }) => (
+const SideBarIcon = ({ icon, text }) => (
     <div className="sidebar-icon group">
         {icon}
         <span class="sidebar-tooltip group-hover:scale-100">

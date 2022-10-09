@@ -40,14 +40,14 @@ html {
   }
 
   .sidebar-hr {
-    @apply bg-custom-green
-    border border-custom-green rounded-full
+    @apply bg-gray-300
+    border border-gray-300 rounded-full
     mx-2;
   }
   
   .content-hr {
-    @apply bg-white dark:bg-white 
-    border border-gray-200 dark:border-white rounded-full
+    @apply bg-gray-800 
+    border border-gray-800 rounded-full
     mx-2;
   }
 
@@ -101,6 +101,7 @@ html {
   .content-container {
     @apply flex flex-col 
     bg-gray-700
+    shadow-xl
     m-0 
     w-screen 
     h-screen
@@ -177,13 +178,13 @@ html {
   }
 
   .channel-bar {
-    @apply w-80 h-auto m-0 ml-16 bg-gray-200 dark:bg-gray-800
+    @apply w-80 h-auto m-0 ml-16 bg-custom-white
      overflow-hidden;
   }
 
   .channel-container {
     @apply flex flex-col items-center justify-start 
-   bg-[#ffffff]
+   bg-custom-white
     p-1 m-0;
   }
 
@@ -195,7 +196,7 @@ html {
 
   .channel-block-text {
     @apply text-lg tracking-wider font-bold 
-    text-gray-600 dark:text-gray-400 
+   text-gray-800
     mr-auto ml-4 my-auto align-middle;
   }
 
@@ -217,7 +218,7 @@ html {
   }
 
   .dropdown-header-text-selected {
-    @apply text-blue-500 text-opacity-90 text-lg font-bold;
+    @apply text-custom-green text-opacity-90 text-lg font-bold;
   }
 
   .dropdown-selection {

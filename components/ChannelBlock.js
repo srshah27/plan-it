@@ -10,7 +10,7 @@ const ChannelBar = () => {
             <ChannelBlock />
             < Divider />
             <div className='channel-container'>
-                <Dropdown header="Today's Tasks" selections={today} />
+                <Dropdown header=" Today's Tasks" selections={today} />
                 <Dropdown header="Tomorrow's Tasks" selections={tomorrow} />
             </div>
         </div>
@@ -39,7 +39,7 @@ const Dropdown = ({ header, selections }) => {
 };
 
 const ChevronIcon = ({ expanded }) => {
-    const chevClass = 'text-accent text-opacity-80 my-auto mr-1';
+    const chevClass = 'text-accent text-opacity-80 my-auto mr-4';
     return expanded ? (
         <FaChevronDown size='14' className={chevClass} />
     ) : (
@@ -49,7 +49,7 @@ const ChevronIcon = ({ expanded }) => {
 
 const TopicSelection = ({ selection }) => (
     <div className='dropdown-selection'>
-        <FiCheckSquare size='18' className='text-gray-400' />   
+        <FiCheckSquare size='18' className='text-gray-400 mr-2' />   
         <h5 className='dropdown-selection-text'>{selection}</h5>
     </div>
 );
