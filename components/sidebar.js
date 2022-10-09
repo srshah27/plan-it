@@ -28,7 +28,7 @@ const SideBar = () => {
 const SideBarIcon = ({ icon, text = 'tooltip 💡' }) => (
     <div className="sidebar-icon group">
         {icon}
-        <span class="sidebar-tooltip group-hover:scale-100">
+        <span className="sidebar-tooltip group-hover:scale-100">
             {text}
         </span>
     </div>
@@ -37,7 +37,7 @@ const SideBarIcon = ({ icon, text = 'tooltip 💡' }) => (
 const SideBarLogo = ({ icon, text = 'Plan-it ' }) => (
     <div className="sidebar-logo group">
         {icon}
-        <span class="sidebar-tooltip group-hover:scale-100">
+        <span className="sidebar-tooltip group-hover:scale-100">
             {text}
         </span>
     </div>
