@@ -8,15 +8,15 @@ const ContentContainer = () => {
       <TopNavigation />
       <div className='content-list'>
         <Post
-          name='Kill Adi'
+          name='Task 1'
           timestamp='one week ago'
           text={`Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit
           amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur
           adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem
           ipsum dolor sit amet consectetur adipisicing elit.`}
         />
-        <Post name='Lmao' timestamp='one week ago' text={`Lorem ipsum dolor. `} />
-        <Post name='Kill Me' timestamp='5 days ago' text={`Lorem.`} />
+        <Post name='Task 2' timestamp='one week ago' text={`Lorem ipsum dolor. `} />
+        <Post name='Task 3' timestamp='5 days ago' text={`Lorem.`} />
         <Post
           name='Presentation'
           timestamp='4 days ago'
