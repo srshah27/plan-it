@@ -46,7 +46,7 @@
 } */
 .btn{
     @apply 
-    mt-4 flex-row text-center
+    mt-6 flex-row text-center
     bg-custom-green
     cursor-pointer 
     text-custom-cream2
@@ -54,6 +54,5 @@
     w-16
     h-8
     mx-20
-    mt-4
 }
 
