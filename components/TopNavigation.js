@@ -13,7 +13,6 @@ const TopNavigation = () => {
 
   let userImage
   const { data: session, status } = useSession()
-  console.log(session);
   if(session){
     userImage = session.user.image;
   }

@@ -1,7 +1,7 @@
 import React from 'react'
 import Head from 'next/head'
-import styles from '../styles/Register.module.css'
-import { useState, setState } from 'react'
+import styles from '../../styles/Register.module.css'
+import { useState } from 'react'
 export default function Register() {
   const [name, setName] = useState('');
   const [error, setError] = useState('');
