@@ -13,7 +13,7 @@ const TopNavigation = () => {
 
   let userImage
   const { data: session, status } = useSession()
-  if(session){
+  if (session) {
     userImage = session.user.image;
   }
   return (
@@ -24,7 +24,7 @@ const TopNavigation = () => {
       <Search />
       <BellIcon />
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      {(session) ? <img src={ userImage } alt="User Image" height='40' width='40'/> : <UserCircle /> }
+      {(session) ? <img src={userImage} alt="User Image" height='40' width='40' /> : <UserCircle />}
     </div>
   );
 };
