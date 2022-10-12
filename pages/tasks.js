@@ -1,24 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styles from '../styles/Home.module.css';
 import Image from 'next/image';
 import Head from 'next/head';
+import AddTask from '../components/AddTask';
+
 export default function tasks() {
   
-  const createTask = async () => {
-    const randomNum = Math.floor(Math.random() * 1000);
-    const res = await fetch('/api/task/add', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        taskTitle: `Test ${randomNum}`,
-        user: `test${randomNum}@test.com`,
-      }),
-    });
-    const data = await res.json();
-    console.log(data);
-  }
+  const [addTaskVisible, setAddTaskVisible] = useState(false);
   
   return (
     <div className={styles.container}>
@@ -29,7 +17,8 @@ export default function tasks() {
       </Head>
 
       <main className={styles.main}>
-        <button onClick={createTask}>Create Test</button>
+        <button onClick={() => { setAddTaskVisible(true) }}>Create Test</button>
+        <AddTask modalIsOpen={addTaskVisible} toggleModal={ () => { setAddTaskVisible(false) } } ></AddTask>
         <h1 className={styles.title}>
           Welcome to <a href='https://nextjs.org'>Next.js!</a>
         </h1>

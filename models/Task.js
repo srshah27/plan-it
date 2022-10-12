@@ -1,16 +1,14 @@
-import { Schema, model, models } from 'mongoose';
+import { Schema, model, models} from 'mongoose';
 
 const TaskSchema = new Schema({
-  taskTitle: String,
-  user: String,
-  End: Date,
+  Title: String,
+  User: String,
+  Due: Date,
   Start: Date,
-  Duration: Date,
-  Summary: String,
-  IsAllDay: Boolean,
-  ReccurenceRule: String,
-  IsReadonly: Boolean,
-  IsBlocked: Boolean
+  Duration: Number,
+  Duration_Minutes: Number,
+  Duration_Hours: Number,
+  Description: String,
 })
 
 const Task = models.Task || model('Task', TaskSchema);
