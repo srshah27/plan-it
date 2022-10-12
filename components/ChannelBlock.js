@@ -2,9 +2,9 @@ import { useState } from 'react';
 import { FiCheckSquare } from 'react-icons/fi';
 import { FaChevronDown, FaChevronRight, FaPlus } from 'react-icons/fa';
 
-const today = ['Kill Adi', 'Lmao'];
-const tomorrow = ['Kill Me', 'Presentation'];
-const ChannelBar = () => {
+const today = ['Task 1', 'Task 2'];
+const tomorrow = ['Task 3', 'Presentation'];
+const  ChannelBar = () => {
     return (
         <div className='channel-bar shadow-lg'>
             <CurDate />
