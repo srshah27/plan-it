@@ -4,7 +4,7 @@ import { FaChevronDown, FaChevronRight, FaPlus } from 'react-icons/fa';
 
 const today = ['Task 1', 'Task 2'];
 const tomorrow = ['Task 3', 'Presentation'];
-const ChannelBar = () => {
+const  ChannelBar = () => {
     return (
         <div className='channel-bar shadow-lg'>
             <CurDate />
