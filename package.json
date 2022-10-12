@@ -13,6 +13,7 @@
     "@syncfusion/ej2-data": "^20.3.47",
     "@syncfusion/ej2-react-schedule": "^20.3.49",
     "bcryptjs": "^2.4.3",
+    "modal": "^1.2.0",
     "mongodb": "^4.10.0",
     "mongoose": "^6.6.5",
     "next": "12.3.1",

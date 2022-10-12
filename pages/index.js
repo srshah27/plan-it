@@ -1,7 +1,8 @@
+import Link from 'next/link'
 import React from 'react'
 
 export default function index() {
   return (
-    <div>index</div>
+    <Link href="/tasks"><a>index</a></Link>
   )
 }
