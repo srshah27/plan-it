@@ -1,8 +1,13 @@
-import Link from 'next/link'
 import React from 'react'
+import NavBar from '../components/NavBar'
+import HomePg from '../components/HomePg'
 
 export default function index() {
   return (
-    <Link href="/tasks"><a>index</a></Link>
+    // <div>index</div>
+    <div className="flex-col">
+      <NavBar />
+      <HomePg />
+    </div>
   )
 }
