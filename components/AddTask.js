@@ -3,6 +3,8 @@ import Modal from 'react-modal'
 import { useSession } from "next-auth/react"
 import { useState } from 'react'
 Modal.setAppElement('#__next')
+import styles from '../styles/Task.module.css'
+import { AiOutlineClose } from 'react-icons/ai';
 
 export default function AddTask(props) {
 
@@ -25,7 +27,7 @@ export default function AddTask(props) {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        Title, Duration_Minutes: parseInt(Duration_Minutes), Duration_Hours:parseInt(Duration_Hours), Duration: parseInt(parseInt(Duration_Minutes) + 60 * parseInt(Duration_Hours)) , Due, Start, Description, User: email
+        Title, Duration_Minutes: parseInt(Duration_Minutes), Duration_Hours: parseInt(Duration_Hours), Duration: parseInt(parseInt(Duration_Minutes) + 60 * parseInt(Duration_Hours)), Due, Start, Description, User: email
       }),
     });
     const data = await res.json();
@@ -75,7 +77,7 @@ export default function AddTask(props) {
             left: '31%',
             right: '31%',
             bottom: '15%',
-            border: '1px solid #ccc',
+            border: '2px solid #E0E0E0',
             background: '#fff',
             overflow: 'auto',
             WebkitOverflowScrolling: 'touch',
@@ -86,29 +88,39 @@ export default function AddTask(props) {
         }}
       >
         <div>
-          <h1>Add Task To <b>Tasks</b> </h1>
-          <div className='form-div'>
-            <div  className='form'>
-              <input id='title' type="text" value={Title} placeholder='Task Title' onChange={(e) => handleInputChange(e)} />
-              <br/>
+          <h1 className={styles.head}>
+            <div>
+              Add task to <bn className={styles.hv}>Tasks</bn>
+            </div>
+            <div className={styles.cl}>
+              < Icon icon={<AiOutlineClose size="16" />} />
+            </div>
+          </h1>
+            <Divider></Divider>
+          <div className='form-div' >
+            <div className = 'form'>
+              <input id='title' type="text" value={Title} placeholder='Task Title' onChange={(e) => handleInputChange(e)}  className={styles.form}/>
+              <br />
+              <div className={styles.inp}>
               <label htmlFor="estimate_minutes" className='px-10'>Minutes</label>
-              <input id='estimate_minutes' type="text" value={Duration_Minutes} onChange={(e) => handleInputChange(e)} />
-              <br/>
+              <input id='estimate_minutes' type="text" placeholder = 'mm' value={Duration_Minutes} onChange={(e) => handleInputChange(e)} />
+              <br />
               <label htmlFor="estimate_hours" className='px-10'>Hours</label>
-              <input id='estimate_hours' type="text" value={Duration_Hours} onChange={(e) => handleInputChange(e)} />
-              <br/>
+              <input id='estimate_hours' type="text" placeholder = 'hh' value={Duration_Hours} onChange={(e) => handleInputChange(e)} />
+              <br />
               <label htmlFor="start" className='px-10'>Start</label>
-              <input id='start' type="date" value={Start} onChange={(e) => handleInputChange(e)} />
-              <br/>
+              <input id='start' type="date"  value={Start} onChange={(e) => handleInputChange(e)} />
+              <br />
               <label htmlFor="due" className='px-10'>Due</label>
               <input id='due' type="date" value={Due} onChange={(e) => handleInputChange(e)} />
-              <br/>
+              <br />
               <label htmlFor="description" className='px-10'>Description</label>
               <input id='description' type="textarea" value={Description} placeholder='Add Description' onChange={(e) => handleInputChange(e)} />
-              <br/>
-              
-              <button type="cancel" onClick={props.toggleModal} className='px-10'>Cancel</button>
-              <button onClick={() => handleSubmit()} className='px-10'>Add</button>
+              <br />
+              </div>
+              <button type="cancel" onClick={props.toggleModal}  className={styles.btn}>Cancel</button>
+              <button onClick={() => handleSubmit()} className={styles.btn}>Add</button>
+        
             </div>
           </div>
         </div>
@@ -118,3 +130,11 @@ export default function AddTask(props) {
     </>
   )
 }
+
+const Icon = ({ icon }) => (
+  <div>
+    {icon}
+  </div>
+);
+
+const Divider = () => <hr className={styles.barhr} />;
