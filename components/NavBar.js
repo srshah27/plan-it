@@ -1,6 +1,7 @@
 import styles from '../styles/Home.module.css'
 import Image from 'next/image';
 import Planit from '../public/img/Planit.svg'
+import Link from 'next/Link'
 const NavBar = () => {
     return (
         <div className={styles.topnavigation} >
@@ -10,7 +11,8 @@ const NavBar = () => {
                 height="80px"
             />
             <Title />
-            <button className={styles.signup}>Sign Up!</button>
+            <Link className={styles.signup} href='/api/auth/signin'>Sign Up!</Link>
+            <Link className={styles.getstarted} href='/auth/register'>Get Started</Link>
         </div>
     );
 };
