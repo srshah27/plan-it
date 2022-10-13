@@ -1,5 +1,5 @@
 .sidebaricon {
-    @apply relative flex items-center justify-center 
+    @apply flex items-center justify-center 
     h-12 w-12 mt-2 mb-2 mx-auto  
     bg-custom-cream2 hover:bg-custom-green
     text-[#009B9A] hover:text-[#F5F5F5]
@@ -9,7 +9,7 @@
   }
   
   .sidebar-logo {
-    @apply relative flex items-center justify-center 
+    @apply flex items-center justify-center 
     h-12 w-12 mt-2 mb-2 mx-auto  
     text-custom-green hover:text-custom-cream
     transition-all duration-300 ease-linear

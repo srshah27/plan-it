@@ -19,30 +19,33 @@ const TopNavigation = () => {
   return (
     <div className='top-navigation'>
       {/* <HashtagIcon /> */}
-      <Title />
-      <ThemeIcon />
-      <Search />
-      <BellIcon />
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      {(session) ? <img src={userImage} alt="User Image" height='40' width='40' /> : <UserCircle />}
+      {/* <div className=''> */}
+        <Title />
+      {/* </div> */}
+      {/* <div className='@apply flex justify-items-end'> */}
+        <BellIcon />
+        <Search />
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        {(session) ? <img src={userImage} alt="User Image" height='40' width='40' className='rounded-3xl mr-5' /> : <UserCircle />}
+      {/* </div> */}
     </div>
   );
 };
 
-const ThemeIcon = () => {
-  // const [darkTheme, setDarkTheme] = useDarkMode();
-  let darkTheme = false;
-  const handleMode = () => setDarkTheme(!darkTheme);
-  return (
-    <span onClick={handleMode}>
-      {darkTheme ? (
-        <FaSun size='24' className='top-navigation-icon' />
-      ) : (
-        <FaMoon size='24' className='top-navigation-icon' />
-      )}
-    </span>
-  );
-};
+// const ThemeIcon = () => {
+//   // const [darkTheme, setDarkTheme] = useDarkMode();
+//   // let darkTheme = false;
+//   const handleMode = () => setDarkTheme(!darkTheme);
+//   return (
+//     <span onClick={handleMode}>
+//       {/* {darkTheme ? (
+//         <FaSun size='24' className='top-navigation-icon' />
+//       ) : (
+//         <FaMoon size='24' className='top-navigation-icon' />
+//       )} */}
+//     </span>
+//   );
+// };
 
 const Search = () => (
   <div className='search'>
@@ -53,6 +56,6 @@ const Search = () => (
 const BellIcon = () => <FaRegBell size='24' className='top-navigation-icon' />;
 const UserCircle = () => <FaUserCircle size='24' className='top-navigation-icon' />;
 // const HashtagIcon = () => <FaHashtag size='20' className='title-hashtag' />;
-const Title = () => <h5 className='title-text'>Plan-it!</h5>;
+const Title = () => <h5 className='title-text'>{new Date().toLocaleString("en-US", { month: "long" })}, {new Date().toLocaleString("en-US", { day: '2-digit' })}</h5>;
 
 export default TopNavigation;

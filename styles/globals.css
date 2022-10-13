@@ -3,7 +3,8 @@
 @tailwind components;
 @tailwind utilities;
 html {
-  @apply font-main;
+  @apply font-main
+  overflow-hidden;
 }
 *,
 *::before,
@@ -17,20 +18,24 @@ html {
   .content-hr {
     @apply bg-gray-800 
     border border-gray-800 rounded-full
-    mx-2;
+    my-2
+    min-w-full
   }
 
   .top-navigation {
-    @apply flex flex-row items-center justify-evenly 
-    bg-custom-white bg-opacity-90 
-    w-full h-16 
-    m-0 
+    @apply flex flex-row items-center justify-end
+    bg-custom-white
+    h-16
+    m-0
+    /* z-20 */
+    w-screen
     shadow-lg;
   }
 
   .top-navigation-icon {
     @apply text-gray-500
     mr-3 ml-4
+    min-h-full
     transition duration-300 ease-in-out 
     hover:text-pink-400 
     cursor-pointer;
@@ -47,15 +52,17 @@ html {
 
   .title-text {
     @apply text-xl text-gray-800 tracking-wider font-semibold text-opacity-80 
-    mr-auto ml-2 my-auto 
+    my-auto 
+    ml-52
+    flex-auto
     transition duration-300 ease-in-out;
   }
 
   .search {
-    @apply w-1/5 flex items-center justify-start 
+    @apply w-1/5 flex  
     bg-gray-50
     text-gray-500
-    px-2 h-9 ml-0 mr-0 
+    px-2 h-9 ml-10 mr-10
     rounded-md shadow-md
     transition duration-300 ease-in-out;
   }
@@ -64,14 +71,13 @@ html {
     @apply w-full
     bg-transparent outline-none 
     text-gray-500  placeholder-gray-500
-    pl-1 rounded;
+    rounded;
   }
 
   .content-container {
     @apply flex flex-col 
     bg-custom-gray
     m-0 
-    w-screen 
     h-screen
     overflow-hidden;
   }
@@ -146,7 +152,7 @@ html {
   }
 
   .channel-bar {
-    @apply w-96 h-auto m-0 ml-16 bg-custom-white
+    @apply w-1/5 h-screen m-0 ml-16 bg-custom-white
      overflow-hidden;
   }
 
@@ -161,7 +167,6 @@ html {
     @apply flex items-center justify-center 
     h-16 
     w-screen
-
     m-0 p-0;
   }
 
@@ -177,8 +182,8 @@ html {
   }
 
   .dropdown-header {
-    @apply flex flex-row items-center justify-evenly
-    mx-0 text-gray-500
+    @apply flex flex-row items-center
+    mx-0 text-gray-500 my-2
     cursor-pointer;
   }
 
@@ -216,4 +221,8 @@ html {
 
 ::-webkit-scrollbar-thumb {
   @apply bg-gray-500 dark:bg-green-400;
+}
+
+.appview {
+  @apply flex flex-row justify-center
 }
