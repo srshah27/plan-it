@@ -6,8 +6,15 @@
 
 .signup {
   @apply text-2xl  text-gray-800 tracking-wider text-opacity-100
-  font-semibold text-center mr-4
-  box-border h-16 w-36 p-3 border-4
+  font-semibold text-center 
+  mr-32
+  transition duration-300 ease-in-out;
+}
+
+.getstarted {
+  @apply text-2xl  text-gray-800 tracking-wider text-opacity-100
+  font-semibold text-center 
+  mr-4 ml-32
   transition duration-300 ease-in-out;
 }
 
