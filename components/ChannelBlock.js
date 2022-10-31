@@ -1,51 +1,55 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { FiCheckSquare } from 'react-icons/fi';
 import { FaChevronDown, FaChevronRight, FaPlus } from 'react-icons/fa';
 import AddTask from './AddTask';
-
+import useSwr from "swr"
 import { useSession } from "next-auth/react"
-const today = ['Task 1', 'Task 2'];
-const tomorrow = ['Task 3', 'Presentation'];
 
-const getTasks = async (email) => {
-  let tasks = await fetch('/api/getTasks', {
-    method: 'POST',
-    headers: {},
-    body: {
-      email: email
-    }
-  })
-  console.log(tasks);
-  return tasks
-}
 
-function getServerSideProps() {
-  // console.log(session?.user?.email);
-  console.log(session?.user?.email);
-  let tasks = getTasks(session?.user?.email);
-  props = {
-    tasks
-  }
-  return props
-}
+
 
 const ChannelBar = (props) => {
   const { data: session, status } = useSession()
-  console.log(props.tasks);
-  console.log(props.inc);
+  const [isLoading, setLoading] = useState(false)
+  const [Tasks, setTasks] = useState(null);
+ 
+
   let date = new Date(props.date);
-  if(props.inc != 0){
+  if (props.inc != 0) {
     date.setDate(date.getDate() + props.inc)
   }
-  console.log(date);
+
+  const fetchTasks = () => {
+    fetch(`/api/getTasks?email=${session?.user?.email}`)
+    .then((response) => {
+      return response.json()
+    })
+    .then((data) => ( setTasks(data?.tasks)))
+  }
+
+  useEffect(() => {
+    fetchTasks()
+  });
+
   const month = date.toLocaleString("en-US", { month: "long" })
   const day = date.toLocaleString("en-US", { day: "2-digit" })
-  return (
-    <div className='channel-bar  m-0'>
-      {/* <CurDate /> */}
-      <Dropdown header={month + ', ' + day} selections={today} />
-    </div>
-  );
+  let today = [];
+  Tasks?.forEach(task => {
+    let taskDate = new Date(task?.Start)
+    if(date.getDate() == taskDate.getDate()){
+      today.push(task)
+    }
+  });
+  let todaySet = new Set(today)
+  today = Array.from(todaySet)
+  // console.log(today);
+
+return (
+  <div className='channel-bar  m-0'>
+    {/* <CurDate /> */}
+    <Dropdown header={month + ', ' + day} selections={today} />
+  </div>
+);
 };
 
 const Dropdown = ({ header, selections }) => {
@@ -68,7 +72,7 @@ const Dropdown = ({ header, selections }) => {
       </div>
       {expanded &&
         selections &&
-        selections.map((selection, i) => <TopicSelection key={i} selection={selection} />)}
+        selections.map((selection, i) => <TopicSelection key={i} selection={selection.Title} />)}
     </div>
   );
 };

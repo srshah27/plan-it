@@ -31,6 +31,7 @@ export default function Index() {
     <div className="flex-col">
       <NavBar />
       <HomePg />
+    <button onClick={notify} > Notify</button>
     </div>
   )
 }

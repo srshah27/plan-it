@@ -21,12 +21,21 @@ export default function Home() {
         <TopNavigation />
       </div>
       <div className='flex flex-row ml-20' >
-        <ChannelBar date={today} inc={ 0 } />
-        <ChannelBar date={today} inc={ 1 } />
-      <ChannelBar date={today} inc={ 2 }  />
-      <ChannelBar date={today} inc={ 3 }  />
-      <ChannelBar date={today} inc={ 4 }  />
+        <ChannelBar date={today} inc={0} />
+        <ChannelBar date={today} inc={1} />
+        <ChannelBar date={today} inc={2} />
+        <ChannelBar date={today} inc={3} />
+        <ChannelBar date={today} inc={4} />
       </div>
+      {/* {
+        window.addEventListener('scroll', () => {
+          console.log("scrolled", window.scrollY) //scrolled from top
+          console.log(window.innerHeight) //visible part of screen
+          if (window.scrollY + window.innerHeight >= document.documentElement.scrollHeight) {
+            loadImages();
+          }
+        })
+      } */}
     </div>
   )
 }
