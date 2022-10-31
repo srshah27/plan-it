@@ -18,11 +18,14 @@ export default function index() {
       })
     }
   }, [])
+  
+  const notify = () => {const notify = new Notification("Planned IT!")}
   return (
     // <div>index</div>
     <div className="flex-col">
       <NavBar />
       <HomePg />
+      <button onClick={notify}>Send Notify</button>
     </div>
   )
 }
