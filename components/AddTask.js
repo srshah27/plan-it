@@ -14,7 +14,12 @@ export default function AddTask(props) {
   const [Title, setTitle] = useState('');
   const [Duration_Minutes, setDuration_Minutes] = useState('15');
   const [Duration_Hours, setDuration_Hours] = useState('0');
+  
   let d = new Date()
+  if(props.date){
+    d = date
+  }
+  
   d.setMinutes(d.getMinutes() - d.getTimezoneOffset());
   const [Due, setDue] = useState(d.toJSON().slice(0, 10));
   const [Start, setStart] = useState(d.toJSON().slice(0, 10));
@@ -92,9 +97,9 @@ export default function AddTask(props) {
             <div>
               Add task to <bn className={styles.hv}>Tasks</bn>
             </div>
-            <div className={styles.cl}>
+            <button className={styles.cl} onClick={props.toggleModal}>
               < Icon icon={<AiOutlineClose size="16" />} />
-            </div>
+            </button>
           </h1>
             <Divider></Divider>
           <div className='form-div' >

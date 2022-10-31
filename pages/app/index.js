@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import SideBar from '../../components/SideBar'
+import SideBar from '../../components/Sidebar'
 import ChannelBar from '../../components/ChannelBlock'
 import styles from '../../styles/Home.module.css'
 import ContentContainer from '../../components/Content'
@@ -11,6 +11,7 @@ export default function Home() {
   const { data: session, status } = useSession()
   console.log("a");
   console.log(session);
+  let today = new Date();
   // if(session)
   return (
     <div>
@@ -19,8 +20,13 @@ export default function Home() {
         {/* <ContentContainer /> */}
         <TopNavigation />
       </div>
-      <ChannelBar />
-      
+      <div className='flex flex-row ml-20' >
+        <ChannelBar date={today} inc={ 0 } />
+        <ChannelBar date={today} inc={ 1 } />
+      <ChannelBar date={today} inc={ 2 }  />
+      <ChannelBar date={today} inc={ 3 }  />
+      <ChannelBar date={today} inc={ 4 }  />
+      </div>
     </div>
   )
 }

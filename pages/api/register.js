@@ -1,4 +1,4 @@
-import clientPromise from "../../lib/mongodb";
+
 import connectMongo from '../../lib/dbConnect';
 import Users from "../../models/Users";
 import { hash } from 'bcryptjs';

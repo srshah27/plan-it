@@ -4,8 +4,11 @@ import { FiSettings } from 'react-icons/fi';
 import Image from 'next/image'
 import Link from 'next/link'
 import styles from '../styles/SideBar.module.css'
+import { useState } from 'react';
+import AddTask from './AddTask';
 
 const SideBar = () => {
+    const [addTaskVisible, setAddTaskVisible] = useState(false);
     return (
         <div>
             <div className="fixed top-0 left-0 h-screen w-16 flex flex-col flex-start
@@ -13,7 +16,8 @@ const SideBar = () => {
 
                 <Link href = "/"><a><SideBarLogo icon={<Image src="/img/Planit.svg" alt='Add' width={90} height={72} />} /></a></Link>
                 <Divider />
-                <SideBarIcon icon={<BsPlus size="32" />} text ={"Add"} />
+                <button onClick={() => { setAddTaskVisible(true) }}><SideBarIcon icon={<BsPlus size="32" />} text ={"Add"} /></button>
+                <AddTask modalIsOpen={addTaskVisible} toggleModal={ () => { setAddTaskVisible(false) } } ></AddTask>
                 <SideBarIcon icon={<IoMdCheckmark size="32" />} text ={"Done"} />
                 <SideBarIcon icon={<BsCalendar2Event size="24" />} text = {"View"}/>
                 <Divider />

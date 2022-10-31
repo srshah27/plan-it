@@ -1,6 +1,7 @@
 import styles from '../styles/Home.module.css'
 import Image from 'next/image';
 import Planit from '../public/img/Planit.svg'
+import Link from 'next/link';
 import { useSession } from "next-auth/react"
 import Router from 'next/router';
 const NavBar = () => {
@@ -45,3 +46,4 @@ const Title = () => <h5 className={styles.titletext}>Plan-it!</h5>;
 
 
 export default NavBar;
+
