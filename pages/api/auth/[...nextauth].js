@@ -11,12 +11,14 @@ import Users from "../../../models/Users";
 // https://next-auth.js.org/configuration/options
 export default NextAuth({
   adapter: MongoDBAdapter(clientPromise),
-
+  
+  
   providers: [
     GithubProvider({
       clientId: process.env.GITHUB_ID,
       clientSecret: process.env.GITHUB_SECRET,
     }),
+
 
     CredentialProvider({
 
@@ -50,7 +52,6 @@ export default NextAuth({
     async signIn({ user, account, profile, email, credentials }) {
       // if(account)
       //   user = account
-      console.log("ihasgahjs",user);
       return true
     },
     async redirect({ url, baseUrl }) {
@@ -86,12 +87,12 @@ export default NextAuth({
       //   return token
       // }
       console.log(user);
-        user && (token.user = user)
-        return token
+      user && (token.user = user)
+      return token
     },
     session: async ({ session, token }) => {
-        session.user = token.user
-        return session
+      session.user = token.user
+      return session
     }
   },
 

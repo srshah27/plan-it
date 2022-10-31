@@ -6,7 +6,7 @@ export default function Board({ user }) {
     <div>
       Board
       <h1>
-        { user }
+        { user }  
       </h1>
     </div>
 

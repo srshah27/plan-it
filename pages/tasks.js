@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Head from 'next/head';
 import AddTask from '../components/AddTask';
 
-export default function tasks() {
+export default function Tasks() {
   
   const [addTaskVisible, setAddTaskVisible] = useState(false);
   
