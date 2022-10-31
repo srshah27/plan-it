@@ -4,7 +4,7 @@
 @tailwind utilities;
 html {
   @apply font-main
-  overflow-hidden;
+  overflow-y-hidden;
 }
 *,
 *::before,
@@ -86,7 +86,7 @@ html {
     @apply flex flex-col items-center 
     h-full w-full
     mt-0 ml-0 mx-auto px-0 pb-12 
-    overflow-y-scroll;
+    /* overflow-y-scroll; */
   }
 
   .post {
