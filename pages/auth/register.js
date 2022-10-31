@@ -56,7 +56,7 @@ export default function Register() {
     return (
       <>
         <Head>
-          <title>Register</title>
+          <title>Register | Plan IT!</title>
         </Head>
         <nav>
           <div>
