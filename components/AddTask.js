@@ -6,6 +6,8 @@ Modal.setAppElement('#__next')
 import styles from '../styles/Task.module.css'
 import { AiOutlineClose } from 'react-icons/ai';
 
+const notify = () => {const notify = new Notification("Planned IT!")}
+
 export default function AddTask(props) {
 
 
@@ -36,6 +38,9 @@ export default function AddTask(props) {
       }),
     });
     const data = await res.json();
+    if(data){
+      const notify = new Notification(`Task Added: ${Title}`)
+    }
     console.log(data);
     console.log("Sent");
     props.toggleModal()
