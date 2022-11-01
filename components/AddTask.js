@@ -17,7 +17,7 @@ export default function AddTask(props) {
   
   let d = new Date()
   if(props.date){
-    d = date
+    d = new Date(props.date)
   }
   
   d.setMinutes(d.getMinutes() - d.getTimezoneOffset());

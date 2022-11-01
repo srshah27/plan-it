@@ -47,12 +47,12 @@ const ChannelBar = (props) => {
 return (
   <div className='channel-bar  m-0'>
     {/* <CurDate /> */}
-    <Dropdown header={month + ', ' + day} selections={today} />
+    <Dropdown header={month + ', ' + day} selections={today} date={ date } />
   </div>
 );
 };
 
-const Dropdown = ({ header, selections }) => {
+const Dropdown = ({ header, selections, date}) => {
   const [expanded, setExpanded] = useState(true);
   const [addTaskVisible, setAddTaskVisible] = useState(false);
   return (
@@ -66,7 +66,7 @@ const Dropdown = ({ header, selections }) => {
             {header}
           </h5>
           <button onClick={() => { setAddTaskVisible(true) }}><FaPlus size='16' className='text-accent text-opacity-80 my-auto ml-32 mr-2' /></button>
-          <AddTask modalIsOpen={addTaskVisible} toggleModal={() => { setAddTaskVisible(false) }} ></AddTask>
+          <AddTask modalIsOpen={addTaskVisible} toggleModal={() => { setAddTaskVisible(false) }} date={ date }></AddTask>
         </div>
         <Divider />
       </div>
