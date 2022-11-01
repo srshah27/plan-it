@@ -44,7 +44,7 @@ const ChannelBar = (props) => {
   // console.log(today);
 
 return (
-  <div className='channel-bar  m-0'>
+  <div className='channel-bar  m-0 border-r-2'>
     {/* <CurDate /> */}
     <Dropdown header={month + ', ' + day} selections={today} date={ date } />
   </div>

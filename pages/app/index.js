@@ -28,9 +28,9 @@ export default function Home() {
           <hr />
           <InfiniteScroll
             dataLength={100}
-            next={<ChannelBar date={today} inc={11} />}
+            next={() => {return(<ChannelBar date={today} inc={11} />)}}
             hasMore={true}
-            loader={<h4>Loading...</h4>} className='flex flex-row'
+            loader={<h4>View</h4>} className='flex flex-row'
           >
             <ChannelBar date={today} inc={0} />
             <ChannelBar date={today} inc={1} />
