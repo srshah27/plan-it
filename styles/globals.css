@@ -5,6 +5,7 @@
 html {
   @apply font-main
   overflow-y-hidden;
+  @apply bg-custom-white
 }
 *,
 *::before,
@@ -15,6 +16,8 @@ html {
 }
 
 @layer components {
+  
+  
   .content-hr {
     @apply bg-gray-800 
     border border-gray-800 rounded-full
