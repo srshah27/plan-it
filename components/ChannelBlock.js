@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { FiCheckSquare } from 'react-icons/fi';
 import { FaChevronDown, FaChevronRight, FaPlus } from 'react-icons/fa';
 import AddTask from './AddTask';
-import useSwr from "swr"
 import { useSession } from "next-auth/react"
 
 
