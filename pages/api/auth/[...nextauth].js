@@ -11,8 +11,8 @@ import Users from "../../../models/Users";
 // https://next-auth.js.org/configuration/options
 export default NextAuth({
   adapter: MongoDBAdapter(clientPromise),
-  
-  
+
+
   providers: [
     GithubProvider({
       clientId: process.env.GITHUB_ID,
@@ -95,7 +95,12 @@ export default NextAuth({
       return session
     }
   },
-
+  theme: {
+    colorScheme: "light", // "auto" | "dark" | "light"
+    brandColor: "#009B9A", // Hex color code
+    logo: "/img/Planit.svg", // Absolute URL to image
+    buttonText: "#009B9A" // Hex color code
+  },
   logger: {
     error(code, metadata) {
       console.error(code, metadata)
