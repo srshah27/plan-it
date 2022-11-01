@@ -17,7 +17,7 @@ const TopNavigation = () => {
     userImage = session.user.image;
   }
   return (
-    <div className='top-navigation fixed-top'>
+    <div className='top-navigation fixed'>
       {/* <HashtagIcon /> */}
       {/* <div className=''> */}
         <Title />
