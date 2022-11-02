@@ -61,27 +61,23 @@ export default function Register() {
         </Head>
         <nav>
           <div>
-            <h3>Registration</h3>
+            <h3 className='text-center text-6xl text-custom-green mt-8' >Register Here!</h3>
           </div>
         </nav>
 
         <div className={styles.form}>
           <div className={styles.formbody}>
             <div className={styles.name}>
-              <label className={styles.form__label} htmlFor="name">Last Name </label>
-              <input type="text" name="" id="name" className={styles.form__input} value={name} onChange={(e) => handleInputChange(e)} placeholder="Name" />
+              <input type="text" name="" id="name" className={styles.form_input} value={name} onChange={(e) => handleInputChange(e)} placeholder="User Name" />
             </div>
             <div className={styles.email}>
-              <label className={styles.form__label} htmlFor="email">Email </label>
-              <input type="email" id="email" className={styles.form__input} value={email} onChange={(e) => handleInputChange(e)} placeholder="Email" />
+              <input type="email" id="email" className={styles.form_input} value={email} onChange={(e) => handleInputChange(e)} placeholder="Email" />
             </div>
             <div className={styles.password}>
-              <label className={styles.form__label} htmlFor="password">Password </label>
-              <input className={styles.form__input} type="password" id="password" value={password} onChange={(e) => handleInputChange(e)} placeholder="Password" />
+              <input className={styles.form_input} type="password" id="password" value={password} onChange={(e) => handleInputChange(e)} placeholder="Password" />
             </div>
             <div className={styles.confirmpassword}>
-              <label className={styles.form__label} htmlFor="confirmPassword">Confirm Password </label>
-              <input className={styles.form__input} type="password" id="confirmPassword" value={confirmPassword} onChange={(e) => handleInputChange(e)} placeholder="Confirm Password" />
+              <input className={styles.form_input} type="password" id="confirmPassword" value={confirmPassword} onChange={(e) => handleInputChange(e)} placeholder="Confirm Password" />
             </div>
           </div>
           <div>
@@ -90,9 +86,7 @@ export default function Register() {
             {(password != '' && confirmPassword != '' && password != confirmPassword) ? <p>Password and Confirm Password do not match</p> : null}
             {(error != '') ? <p>{error}</p> : null}
           </div>
-          <div className="footer">
-            <button onClick={() => handleSubmit()} type="submit" className="btn">Register</button>
-          </div>
+            <button onClick={() => handleSubmit()} type="submit" className= {styles.btn}>Register</button>
         </div>
       </>
     )
