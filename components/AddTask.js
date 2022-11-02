@@ -41,6 +41,12 @@ export default function AddTask(props) {
     });
     const data = await res.json();
     if (data) {
+      setTitle('')
+      setDuration_Minutes('15')
+      setDuration_Hours('0')
+      setDue(d.toJSON().slice(0, 10))
+      setStart(d.toJSON().slice(0, 10))
+      setDescription('')
       const notify = new Notification(`Task Added: ${Title}`)
       props.taskadded();
 

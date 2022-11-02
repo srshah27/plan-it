@@ -6,7 +6,7 @@ import {
   FaMoon,
   FaSun,
 } from 'react-icons/fa';
-import Link from 'next/Link'
+import Link from 'next/link'
 import styles from '../styles/SideBar.module.css'
 import useDarkMode from '../hooks/useDarkMode';
 import { useSession } from "next-auth/react"

@@ -8,25 +8,29 @@ import TopNavigation from '../../components/TopNavigation'
 import InfiniteScroll from "react-infinite-scroll-component";
 import { useSession } from "next-auth/react"
 import { useRouter } from 'next/router'
-
+import useSWR from 'swr'
+const fetcher = (...args) => fetch(...args).then((res) => res.json())
 
 export default function Home() {
   const { data: session, status } = useSession()
   const router = useRouter()
-  const [Tasks, setTasks] = useState(null);
-  const fetchTasks = () => {
-    fetch(`/api/getTasks?email=${session?.user?.email}`)
-      .then((response) => {
-        return response.json()
-      })
-      .then((data) => (setTasks(data?.tasks)))
-  };
+  // const [Tasks, setTasks] = useState(null);
+  
+  const { data, error } = useSWR(`http://localhost:3000/api/task/get?email=${session?.user?.email}`, fetcher, { refreshInterval: 1000 })
+  // const fetchTasks = () => {
+  //   fetch(`http://localhost:3000/api/getTasks?email=${session?.user?.email}`)
+  //     .then((response) => {
+  //       return response.json()
+  //     })
+  //     .then((data) => (setTasks(data?.tasks)))
+  // };
+  // fetchTasks()
   let today = new Date()
   let { $ } = router.query
   if ($) {
     today = new Date($)
   }
-  fetchTasks()
+  let Tasks = data?.tasks
   // listen for scroll event and load more images if we reach the bottom of window
 
   return (

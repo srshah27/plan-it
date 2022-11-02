@@ -111,7 +111,7 @@ export default function ViewTask(props) {
         <Toaster/>
           <h1 className={styles.head}>
             <div>
-              Add task to <bn className={styles.hv}>Tasks</bn>
+              View task: <bn className={styles.hv}>{ Task.Title }</bn>
             </div>
             <button className={styles.cl} onClick={props.toggleModal}>
               < Icon icon={<AiOutlineClose size="16" />} />
