@@ -61,12 +61,13 @@ export default function Register() {
         </Head>
         <nav>
           <div>
-            <h3 className='text-center text-6xl text-custom-green mt-8' >Register Here!</h3>
+            <h3 className='text-center text-6xl text-custom-green mt-14' >Register Here!</h3>
           </div>
         </nav>
 
         <div className={styles.form}>
           <div className={styles.formbody}>
+            <h3 className='text-center text-3xl text-custom-green mt-4' >Enter your details</h3>
             <div className={styles.name}>
               <input type="text" name="" id="name" className={styles.form_input} value={name} onChange={(e) => handleInputChange(e)} placeholder="User Name" />
             </div>
