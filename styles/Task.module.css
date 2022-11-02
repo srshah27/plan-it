@@ -5,7 +5,7 @@
 }
 
 .hv{
-    @apply underline
+    @apply underline text-center
 }
 .hv:hover {
     @apply text-custom-blue

@@ -108,9 +108,9 @@ export default function AddTask(props) {
         }}
       >
         <div>
-        <Toaster/>
+          <Toaster />
           <h1 className={styles.head}>
-            <div>
+            <div className='text-center'>
               Add task to <bn className={styles.hv}>Tasks</bn>
             </div>
             <button className={styles.cl} onClick={props.toggleModal}>

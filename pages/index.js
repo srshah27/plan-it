@@ -41,13 +41,12 @@ export default function Index() {
       <Head>
         <title>Home | Plan IT!</title>
       </Head>
-        <div className={styles.scroll}>
-          <NavBar />
-          <HomePg />
-          <Toaster />
-          <button onClick={() => { notify(); check() }} > Notify</button>
-          <Footer />
-        </div>
+      <div className={styles.scroll}>
+        <NavBar />
+        <HomePg />
+        <Toaster />
+        <Footer />
+      </div>
     </>
   )
 }

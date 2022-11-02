@@ -94,7 +94,7 @@ const Dropdown = ({ header, tasks, date }) => {
   }
 
   return (
-    <div className='dropdown'>
+    <div className='dropdown mt-2'>
       <Toaster />
       <div className='flex flex-col'>
         <div className='dropdown-header'>
@@ -131,7 +131,7 @@ const Dropdown = ({ header, tasks, date }) => {
               <button onClick={() => { setDObjectId(task._id) }}><Icon icon={<MdDelete size="20" />} /></button>
               <h5 className='dropdown-selection-text'>{task.Duration} m</h5>
               {/* <input type="number" value={task.Priority} onChange={(e) => { console.log("heya, " + e.target.value); setPObjectId([task._id, e.target.value]) }} min="0" max="3" ></input> */}
-              <select name="priority" id="priority" value={task.Priority} onChange={(e) => { console.log("heya, " + e.target.value); setPObjectId([task._id, e.target.value]) }} >
+              <select name="priority" id="priority" value={task.Priority} onChange={(e) => { console.log("heya, " + e.target.value); setPObjectId([task._id, e.target.value]) }} className='ml-3'>
                 <option value="0"></option>
                 <option value="1">1</option>
                 <option value="2">2</option>
