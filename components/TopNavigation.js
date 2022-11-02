@@ -6,6 +6,8 @@ import {
   FaMoon,
   FaSun,
 } from 'react-icons/fa';
+import Link from 'next/Link'
+import styles from '../styles/SideBar.module.css' 
 import useDarkMode from '../hooks/useDarkMode';
 import { useSession } from "next-auth/react"
 import Image from 'next/image';
@@ -18,6 +20,8 @@ const TopNavigation = () => {
   }
   return (
     <div className='top-navigation fixed'>
+      <Link href = "/"><a><SideBarLogo icon={<Image src="/img/Planit.svg" alt='Add' width={90} height={72} />} /></a></Link>
+
       {/* <HashtagIcon /> */}
       {/* <div className=''> */}
         <Title />
@@ -46,6 +50,15 @@ const TopNavigation = () => {
 //     </span>
 //   );
 // };
+
+const SideBarLogo = ({ icon, text = 'Plan-it ' }) => (
+  <div className="sidebar-logo group">
+      {icon}
+      <span className={["group-hover:scale-100", styles.sidebartooltip].join(" ")}>
+          {text}
+      </span>
+  </div>
+);
 
 const Search = () => (
   <div className='search'>

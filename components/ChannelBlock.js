@@ -3,15 +3,16 @@ import { FiCheckSquare } from 'react-icons/fi';
 import { FaChevronDown, FaChevronRight, FaPlus } from 'react-icons/fa';
 import AddTask from './AddTask';
 import { useSession } from "next-auth/react"
+import toast, { Toaster } from 'react-hot-toast';
 
 
-
+const taskAdded = () => toast("Task Added")
 
 const ChannelBar = (props) => {
   const { data: session, status } = useSession()
   const [isLoading, setLoading] = useState(false)
   const [Tasks, setTasks] = useState(null);
- 
+
 
   let date = new Date(props.date);
   if (props.inc != 0) {
@@ -20,10 +21,10 @@ const ChannelBar = (props) => {
 
   const fetchTasks = () => {
     fetch(`/api/getTasks?email=${session?.user?.email}`)
-    .then((response) => {
-      return response.json()
-    })
-    .then((data) => ( setTasks(data?.tasks)))
+      .then((response) => {
+        return response.json()
+      })
+      .then((data) => (setTasks(data?.tasks)))
   }
 
   useEffect(() => {
@@ -35,7 +36,7 @@ const ChannelBar = (props) => {
   let today = [];
   Tasks?.forEach(task => {
     let taskDate = new Date(task?.Start)
-    if(date.getDate() == taskDate.getDate()){
+    if (date.getDate() == taskDate.getDate()) {
       today.push(task)
     }
   });
@@ -43,19 +44,20 @@ const ChannelBar = (props) => {
   today = Array.from(todaySet)
   // console.log(today);
 
-return (
-  <div className='channel-bar m-0 border-r-2 mt-16'>
-    {/* <CurDate /> */}
-    <Dropdown header={month + ', ' + day} selections={today} date={ date } />
-  </div>
-);
+  return (
+    <div className='channel-bar m-0 border-r-2 mt-16'>
+      {/* <CurDate /> */}
+      <Dropdown header={month + ', ' + day} selections={today} date={date} />
+    </div>
+  );
 };
 
-const Dropdown = ({ header, selections, date}) => {
+const Dropdown = ({ header, selections, date }) => {
   const [expanded, setExpanded] = useState(true);
   const [addTaskVisible, setAddTaskVisible] = useState(false);
   return (
     <div className='dropdown'>
+      <Toaster />
       <div className='flex flex-col'>
         <div onClick={() => setExpanded(!expanded)} className='dropdown-header'>
           <ChevronIcon expanded={expanded} />
@@ -65,7 +67,7 @@ const Dropdown = ({ header, selections, date}) => {
             {header}
           </h5>
           <button onClick={() => { setAddTaskVisible(true) }}><FaPlus size='16' className='text-accent text-opacity-80 my-auto ml-32 mr-2' /></button>
-          <AddTask modalIsOpen={addTaskVisible} toggleModal={() => { setAddTaskVisible(false) }} date={ date }></AddTask>
+          <AddTask modalIsOpen={addTaskVisible} toggleModal={() => { setAddTaskVisible(false) }} taskadded={() => {taskAdded}} date={date}></AddTask>
         </div>
         <Divider />
       </div>
