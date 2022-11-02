@@ -1,4 +1,4 @@
-import { BsPlus, BsCalendar2Event } from 'react-icons/bs';
+import { BsPlus } from 'react-icons/bs';
 import { IoMdCheckmark } from 'react-icons/io';
 import { FiSettings } from 'react-icons/fi';
 import Image from 'next/image'
@@ -30,7 +30,6 @@ const SideBar = () => {
                 <AddTask modalIsOpen={addTaskVisible} toggleModal={() => { setAddTaskVisible(false) }} ></AddTask>
                 <button onClick={() => { setDoneTaskVisible(true) }}><SideBarIcon icon={<IoMdCheckmark size="32" />} text={"Done"} /></button>
                 <DoneTask modalIsOpen={doneTaskVisible} toggleModal={() => { setDoneTaskVisible(false) }} ></DoneTask>
-                
                 <button onClick={() => { setNotDoneTaskVisible(true) }}><SideBarIcon icon={<MdOutlinePendingActions size="24" />} text={"Pending"} /></button>
                 <NotDoneTask modalIsOpen={notdoneTaskVisible} toggleModal={() => { setNotDoneTaskVisible(false) }} ></NotDoneTask>
                 <Divider />
