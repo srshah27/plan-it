@@ -10,6 +10,7 @@ import toast, { Toaster } from 'react-hot-toast';
 import Link from 'next/link'
 import useSWR from 'swr'
 import styles from "../styles/SideBar.module.css";
+import {GoPrimitiveDot} from 'react-icons/go'
 const fetcher = (...args) => fetch(...args).then((res) => res.json())
 
 
@@ -119,7 +120,7 @@ const Dropdown = ({ header, tasks, date }) => {
 
           <div key={i} className='dropdown-selection justify-between' >
             <div className='flex'>
-              {/* <FaChevronRight size='18' className='text-gray-700 mr-2 -ml-2' /> */}
+              <GoPrimitiveDot size='22' className= 'mr-2 -ml-2' fill={task.Priority == 0 ? "#7ED957" : (task.Priority == 1 ? "grey" : task.Priority == 2 ? "#FFDE59" : (task.Priority == 3 ? "#FF5757" : "blue"))}/>
               {/* <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill={task.Priority == 0 ? "#7ED957" : (task.Priority == 1 ? "grey" : task.Priority == 2 ? "#FFDE59" : (task.Priority == 3 ? "#FF5757" : "blue"))} class="bi bi-flag-fill" viewBox="0 0 16 16">
                 <path d="M14.778.085A.5.5 0 0 1 15 .5V8a.5.5 0 0 1-.314.464L14.5 8l.186.464-.003.001-.006.003-.023.009a12.435 12.435 0 0 1-.397.15c-.264.095-.631.223-1.047.35-.816.252-1.879.523-2.71.523-.847 0-1.548-.28-2.158-.525l-.028-.01C7.68 8.71 7.14 8.5 6.5 8.5c-.7 0-1.638.23-2.437.477A19.626 19.626 0 0 0 3 9.342V15.5a.5.5 0 0 1-1 0V.5a.5.5 0 0 1 1 0v.282c.226-.079.496-.17.79-.26C4.606.272 5.67 0 6.5 0c.84 0 1.524.277 2.121.519l.043.018C9.286.788 9.828 1 10.5 1c.7 0 1.638-.23 2.437-.477a19.587 19.587 0 0 0 1.349-.476l.019-.007.004-.002h.001" />
               </svg> */}
