@@ -56,7 +56,7 @@ const Dropdown = ({ header, tasks, date}) => {
               {header}
             </h5>
           </Link>
-          <button onClick={() => { setAddTaskVisible(true) }}><FaPlus size='16' className='text-accent text-opacity-80 my-auto ml-40 mr-2' /></button>
+          <button onClick={() => { setAddTaskVisible(true) }}><FaPlus size='16' className='text-accent text-opacity-80 my-auto ml-32 mr-2' /></button>
           <AddTask modalIsOpen={addTaskVisible} toggleModal={() => { setAddTaskVisible(false) }} date={ date }></AddTask>
         </div>
         <Divider />
