@@ -48,7 +48,7 @@ export default function AddTask(props) {
       setStart(d.toJSON().slice(0, 10))
       setDescription('')
       const notify = new Notification(`Task Added: ${Title}`)
-      props.taskadded();
+      props?.taskadded();
 
     }
     console.log(data);

@@ -11,9 +11,9 @@ const fetcher = (...args) => fetch(...args).then((res) => res.json())
 
 const notify = () => { const notify = new Notification("Planned IT!") }
 
-export default function DoneTask(props) {
+export default function NotDoneTask(props) {
   const { data: session, loading } = useSession();
-  const { data, error } = useSWR(`http://localhost:3000/api/task/completed?email=${session?.user?.email}`, fetcher, { refreshInterval: 1000 })
+  const { data, error } = useSWR(`http://localhost:3000/api/task/notCompleted?email=${session?.user?.email}`, fetcher, { refreshInterval: 1000 })
   let Tasks = data?.tasks
   console.log(Tasks);
   let doneTasks = [];
@@ -58,7 +58,7 @@ export default function DoneTask(props) {
           <Toaster />
           <h1 className={styles.head}>
             <div>
-              Completed Tasks
+              Pending Tasks
             </div>
             <button className={styles.cl} onClick={props.toggleModal}>
               < Icon icon={<AiOutlineClose size="16" />} />
@@ -69,8 +69,8 @@ export default function DoneTask(props) {
             return (
               <>
                 <div className='flex flex-row justify-between'>
-                  <h1 className={styles.inp2}> {task?.Title}</h1>
-                  <h1 className={styles.inp2}> {task?.Description}</h1>
+                <h1 className= {styles.inp2}> {task?.Title}</h1>
+               <h1 className= {styles.inp2}> {task?.Description}</h1>
                 </div>
               </>)
           })}

@@ -1,4 +1,4 @@
-import { BsPlus, BsCalendar2Event } from 'react-icons/bs';
+import { BsPlus } from 'react-icons/bs';
 import { IoMdCheckmark } from 'react-icons/io';
 import { FiSettings } from 'react-icons/fi';
 import Image from 'next/image'
@@ -8,6 +8,8 @@ import { useState } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
 import AddTask from './AddTask';
 import DoneTask from './DoneTasks';
+import NotDoneTask from './NotDoneTasks';
+import {MdOutlinePendingActions} from 'react-icons/md'
 
 
 
@@ -15,6 +17,7 @@ const SideBar = () => {
     const taskAdded = () => toast.success("Task Added")
     const [addTaskVisible, setAddTaskVisible] = useState(false);
     const [doneTaskVisible, setDoneTaskVisible] = useState(false);
+    const [notdoneTaskVisible, setNotDoneTaskVisible] = useState(false);
     return (
         <div>
         <Toaster />
@@ -27,8 +30,8 @@ const SideBar = () => {
                 <AddTask modalIsOpen={addTaskVisible} toggleModal={() => { setAddTaskVisible(false) }} ></AddTask>
                 <button onClick={() => { setDoneTaskVisible(true) }}><SideBarIcon icon={<IoMdCheckmark size="32" />} text={"Done"} /></button>
                 <DoneTask modalIsOpen={doneTaskVisible} toggleModal={() => { setDoneTaskVisible(false) }} ></DoneTask>
-                
-                <SideBarIcon icon={<BsCalendar2Event size="24" />} text={"View"} />
+                <button onClick={() => { setNotDoneTaskVisible(true) }}><SideBarIcon icon={<MdOutlinePendingActions size="24" />} text={"Pending"} /></button>
+                <NotDoneTask modalIsOpen={notdoneTaskVisible} toggleModal={() => { setNotDoneTaskVisible(false) }} ></NotDoneTask>
                 <Divider />
             </div>
             <div className="fixed left-0 bottom-0 pb-3 flex flex-col w-16 shadow-lg">
