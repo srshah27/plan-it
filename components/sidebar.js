@@ -7,12 +7,14 @@ import styles from '../styles/SideBar.module.css'
 import { useState } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
 import AddTask from './AddTask';
+import DoneTask from './DoneTasks';
 
 
 
 const SideBar = () => {
     const taskAdded = () => toast.success("Task Added")
     const [addTaskVisible, setAddTaskVisible] = useState(false);
+    const [doneTaskVisible, setDoneTaskVisible] = useState(false);
     return (
         <div>
         <Toaster />
@@ -23,7 +25,9 @@ const SideBar = () => {
                 <Divider />
                 <button onClick={() => { setAddTaskVisible(true) }}><SideBarIcon icon={<BsPlus size="32" />} text={"Add"} /></button>
                 <AddTask modalIsOpen={addTaskVisible} toggleModal={() => { setAddTaskVisible(false) }} ></AddTask>
-                <SideBarIcon icon={<IoMdCheckmark size="32" />} text={"Done"} />
+                <button onClick={() => { setDoneTaskVisible(true) }}><SideBarIcon icon={<IoMdCheckmark size="32" />} text={"Done"} /></button>
+                <DoneTask modalIsOpen={doneTaskVisible} toggleModal={() => { setDoneTaskVisible(false) }} ></DoneTask>
+                
                 <SideBarIcon icon={<BsCalendar2Event size="24" />} text={"View"} />
                 <Divider />
             </div>
