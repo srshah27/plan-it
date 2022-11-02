@@ -9,6 +9,7 @@ import {
 import useDarkMode from '../hooks/useDarkMode';
 import { useSession } from "next-auth/react"
 import Image from 'next/image';
+import Link from 'next/link'
 const TopNavigation = () => {
 
   let userImage
@@ -20,13 +21,13 @@ const TopNavigation = () => {
     <div className='top-navigation fixed'>
       {/* <HashtagIcon /> */}
       {/* <div className=''> */}
-        <Title />
+      <Title />
       {/* </div> */}
       {/* <div className='@apply flex justify-items-end'> */}
-        <BellIcon />
-        <Search />
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        {(session) ? <img src={userImage} alt="User Image" height='40' width='40' className='rounded-3xl mr-5' /> : <UserCircle />}
+      <BellIcon />
+      <Search />
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      {(session) ? <img src={userImage} alt="User Image" height='40' width='40' className='rounded-3xl mr-5' /> : <UserCircle />}
       {/* </div> */}
     </div>
   );
@@ -56,6 +57,13 @@ const Search = () => (
 const BellIcon = () => <FaRegBell size='24' className='top-navigation-icon' />;
 const UserCircle = () => <FaUserCircle size='24' className='top-navigation-icon' />;
 // const HashtagIcon = () => <FaHashtag size='20' className='title-hashtag' />;
-const Title = () => <h5 className='title-text'>{new Date().toLocaleString("en-US", { month: "long" })}, {new Date().toLocaleString("en-US", { day: '2-digit' })}</h5>;
+const Title = () => (
+  <Link href={`?$=${new Date().getMonth() + 1}/${new Date().toLocaleString("en-US", { day: '2-digit' })}/${new Date().getFullYear()}`}>
+    <a className='title-text'>
+      <h5>
+        {new Date().toLocaleString("en-US", { month: "long" })}, {new Date().toLocaleString("en-US", { day: '2-digit' })}
+      </h5>
+    </a>
+  </Link>);
 
 export default TopNavigation;

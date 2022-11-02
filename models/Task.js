@@ -9,6 +9,9 @@ const TaskSchema = new Schema({
   Duration_Minutes: Number,
   Duration_Hours: Number,
   Description: String,
+  Priority: Number,
+  Completed: Boolean,
+  Deleted: Boolean,
 })
 
 const Task = models.Task || model('Task', TaskSchema);

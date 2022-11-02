@@ -3,39 +3,28 @@ import { FiCheckSquare } from 'react-icons/fi';
 import { FaChevronDown, FaChevronRight, FaPlus } from 'react-icons/fa';
 import AddTask from './AddTask';
 import { useSession } from "next-auth/react"
+import Link from 'next/link'
 
 
 
 
 const ChannelBar = (props) => {
   const { data: session, status } = useSession()
-  const [isLoading, setLoading] = useState(false)
   const [Tasks, setTasks] = useState(null);
- 
+  // setTasks(props.task)
 
   let date = new Date(props.date);
   if (props.inc != 0) {
     date.setDate(date.getDate() + props.inc)
   }
 
-  const fetchTasks = () => {
-    fetch(`/api/getTasks?email=${session?.user?.email}`)
-    .then((response) => {
-      return response.json()
-    })
-    .then((data) => ( setTasks(data?.tasks)))
-  }
-
-  useEffect(() => {
-    fetchTasks()
-  });
 
   const month = date.toLocaleString("en-US", { month: "long" })
   const day = date.toLocaleString("en-US", { day: "2-digit" })
   let today = [];
-  Tasks?.forEach(task => {
+  props.task?.forEach(task => {
     let taskDate = new Date(task?.Start)
-    if(date.getDate() == taskDate.getDate()){
+    if (date.getDate() == taskDate.getDate()) {
       today.push(task)
     }
   });
@@ -43,29 +32,31 @@ const ChannelBar = (props) => {
   today = Array.from(todaySet)
   // console.log(today);
 
-return (
-  <div className='channel-bar m-0 border-r-2 mt-16'>
-    {/* <CurDate /> */}
-    <Dropdown header={month + ', ' + day} selections={today} date={ date } />
-  </div>
-);
+  return (
+    <div className='channel-bar m-0 border-r-2 mt-16'>
+      {/* <CurDate /> */}
+      <Dropdown header={month + ', ' + day} selections={today} date={date} />
+    </div>
+  );
 };
 
-const Dropdown = ({ header, selections, date}) => {
+const Dropdown = ({ header, selections, date }) => {
   const [expanded, setExpanded] = useState(true);
   const [addTaskVisible, setAddTaskVisible] = useState(false);
   return (
     <div className='dropdown'>
       <div className='flex flex-col'>
-        <div onClick={() => setExpanded(!expanded)} className='dropdown-header'>
-          <ChevronIcon expanded={expanded} />
-          <h5
-            className={expanded ? 'dropdown-header-text-selected' : 'dropdown-header-text'}
-          >
-            {header}
-          </h5>
+        <div className='dropdown-header'>
+          {/* <ChevronIcon expanded={expanded} /> */}
+          <Link href={`?$=${date.getMonth() + 1}/${date.toLocaleString("en-US", { day: '2-digit' })}/${date.getFullYear()}`}>
+            <h5
+              className={expanded ? 'dropdown-header-text-selected' : 'dropdown-header-text'}
+            >
+              {header}
+            </h5>
+          </Link>
           <button onClick={() => { setAddTaskVisible(true) }}><FaPlus size='16' className='text-accent text-opacity-80 my-auto ml-32 mr-2' /></button>
-          <AddTask modalIsOpen={addTaskVisible} toggleModal={() => { setAddTaskVisible(false) }} date={ date }></AddTask>
+          <AddTask modalIsOpen={addTaskVisible} toggleModal={() => { setAddTaskVisible(false) }} date={date}></AddTask>
         </div>
         <Divider />
       </div>

@@ -3,6 +3,7 @@ import NavBar from '../components/NavBar'
 import HomePg from '../components/HomePg'
 import { useSession } from "next-auth/react"
 import Router from 'next/router';
+import Head from 'next/head'
 
 export default function Index() {
   useEffect(() => {
@@ -27,7 +28,6 @@ export default function Index() {
     console.log(session);
   }
   return (
-    // <div>index</div>
     <div className="flex-col">
       <NavBar />
       <HomePg />
