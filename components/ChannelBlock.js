@@ -7,7 +7,7 @@ import toast, { Toaster } from 'react-hot-toast';
 import Link from 'next/link'
 
 
-const taskAdded = () => toast("Task Added")
+const taskAdded = () => toast.success("Task Added")
 
 const ChannelBar = (props) => {
   const { data: session, status } = useSession()
