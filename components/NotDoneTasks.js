@@ -11,7 +11,7 @@ const fetcher = (...args) => fetch(...args).then((res) => res.json())
 
 const notify = () => { const notify = new Notification("Planned IT!") }
 
-export default function DoneTask(props) {
+export default function NotDoneTask(props) {
   const { data: session, loading } = useSession();
   const { data, error } = useSWR(`http://localhost:3000/api/task/notCompleted?email=${session?.user?.email}`, fetcher, { refreshInterval: 1000 })
   let Tasks = data?.tasks
@@ -20,7 +20,7 @@ export default function DoneTask(props) {
   Tasks?.forEach(task => {
     doneTasks.push(task)
   });
-  
+
   // let taskDone = Tasks.filter((a) => { if (a.Completed == true) { return (a) } })
 
 
@@ -55,7 +55,7 @@ export default function DoneTask(props) {
         }}
       >
         <div>
-        <Toaster/>
+          <Toaster />
           <h1 className={styles.head}>
             <div>
               Tasks <h1 className={styles.hv}>Done</h1>
@@ -65,12 +65,13 @@ export default function DoneTask(props) {
             </button>
           </h1>
           <Divider />
-          {doneTasks?.map((task, i) => {return(
-            <>
-            <h1> {task?.Title}</h1>
-            </>)
+          {doneTasks?.map((task, i) => {
+            return (
+              <>
+                <h1> {task?.Title}</h1>
+              </>)
           })}
-          
+
 
         </div>
 
