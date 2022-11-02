@@ -41,6 +41,13 @@
      text-gray-600
     
 }
+
+.inp2{
+    @apply  tracking-wider 
+    mt-4 text-xl flex-col space-y-4 ml-4 mr-4
+     text-gray-600
+    
+}
 /* .inp-spacing{
     @apply   mx-20
 } */

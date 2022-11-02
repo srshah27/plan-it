@@ -8,6 +8,7 @@ import { useState } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
 import AddTask from './AddTask';
 import DoneTask from './DoneTasks';
+import {MdOutlinePendingActions} from 'react-icons/md'
 
 
 
@@ -28,7 +29,7 @@ const SideBar = () => {
                 <button onClick={() => { setDoneTaskVisible(true) }}><SideBarIcon icon={<IoMdCheckmark size="32" />} text={"Done"} /></button>
                 <DoneTask modalIsOpen={doneTaskVisible} toggleModal={() => { setDoneTaskVisible(false) }} ></DoneTask>
                 
-                <SideBarIcon icon={<BsCalendar2Event size="24" />} text={"View"} />
+                <SideBarIcon icon={<MdOutlinePendingActions size="24" />} text={"View"} />
                 <Divider />
             </div>
             <div className="fixed left-0 bottom-0 pb-3 flex flex-col w-16 shadow-lg">

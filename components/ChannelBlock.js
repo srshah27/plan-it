@@ -130,9 +130,9 @@ const Dropdown = ({ header, tasks, date }) => {
               <button onClick={() => { setCObjectId(task._id) }}><Icon icon={<IoMdCheckmark size="20" />} /></button>
               {/* <h5 className='dropdown-selection-text'>{task.Description}</h5> */}
               <button onClick={() => { setDObjectId(task._id) }}><Icon icon={<MdDelete size="20" />} /></button>
-              <h5 className='dropdown-selection-text'>{task.Duration} m</h5>
+              <h5 className='dropdown-selection-text mr-4'>{task.Duration} m</h5>
               {/* <input type="number" value={task.Priority} onChange={(e) => { console.log("heya, " + e.target.value); setPObjectId([task._id, e.target.value]) }} min="0" max="3" ></input> */}
-              <select name="priority" id="priority" value={task.Priority} onChange={(e) => { console.log("heya, " + e.target.value); setPObjectId([task._id, e.target.value]) }} >
+              <select className = 'dropdown-selection-text' name="priority" id="priority" value={task.Priority} onChange={(e) => { console.log("heya, " + e.target.value); setPObjectId([task._id, e.target.value]) }} >
                 <option value="0">0</option>
                 <option value="1">1</option>
                 <option value="2">2</option>

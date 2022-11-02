@@ -58,7 +58,7 @@ export default function DoneTask(props) {
         <Toaster/>
           <h1 className={styles.head}>
             <div>
-              Tasks <h1 className={styles.hv}>Done</h1>
+               Completed <bn className={styles.hv}>Tasks</bn>
             </div>
             <button className={styles.cl} onClick={props.toggleModal}>
               < Icon icon={<AiOutlineClose size="16" />} />
@@ -67,7 +67,10 @@ export default function DoneTask(props) {
           <Divider />
           {doneTasks?.map((task, i) => {return(
             <>
-            <h1> {task?.Title}</h1>
+            <div className='flex flex-row justify-between'>
+            <h1 className= {styles.inp2}> {task?.Title}</h1>
+            <h1 className= {styles.inp2}> {task?.Description}</h1>
+            </div>
             </>)
           })}
           
