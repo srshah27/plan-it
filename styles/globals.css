@@ -200,7 +200,6 @@ html {
     @apply text-gray-500 font-semibold tracking-wide
     mr-auto 
     transition duration-300 ease-in-out 
-    hover:text-pink-500 dark:hover:text-gray-500
     cursor-pointer;
   }
 }
@@ -209,6 +208,7 @@ html {
 
 ::-webkit-scrollbar {
   background-color: transparent;
+  height: 10px;
 }
 
 ::-webkit-scrollbar-thumb {

@@ -1,11 +1,12 @@
 .head  {
-    @apply text-left tracking-wider font-bold 
-    text-custom-green text-3xl flex justify-between
+    @apply text-center tracking-wider font-bold 
+    justify-between
+    text-custom-green text-3xl flex flex-row
     mr-auto ml-4 my-auto align-middle mt-4;
 }
 
 .hv{
-    @apply underline text-center
+    @apply underline
 }
 .hv:hover {
     @apply text-custom-blue
@@ -27,17 +28,23 @@
   }
   
 .form{
-     @apply  tracking-wider 
-     text-gray-800
-    mt-6 text-center text-2xl font-semibold
-    cursor-text 
-    /* border border-custom-green */
-    rounded-md mx-28
-   
+   @apply 
+   tracking-wider
+   text-gray-800
+   mt-4 text-center text-2xl font-semibold
+   cursor-text 
+   rounded-md mx-28
 }
 .inp{
     @apply  tracking-wider 
-    mt-4 text-xl flex-col space-y-4
+    ml-4 mb-0 mt-8 text-xl flex flex-col justify-items-start
+    text-gray-600
+    
+}
+
+.inp2{
+    @apply  tracking-wider 
+    mt-4 text-xl flex-col space-y-4 ml-4 mr-4
      text-gray-600
     
 }
