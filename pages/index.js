@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import NavBar from '../components/NavBar'
 import HomePg from '../components/HomePg'
+import AboutUs from '../components/AboutUs'
 import Footer from '../components/Footer'
 import Head from 'next/head'
 
@@ -45,6 +46,7 @@ export default function Index() {
         <NavBar />
         <HomePg />
         <Toaster />
+        <AboutUs />
         <Footer />
       </div>
     </>
