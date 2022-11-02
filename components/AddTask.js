@@ -96,7 +96,7 @@ export default function AddTask(props) {
             top: '15%',
             left: '31%',
             right: '31%',
-            bottom: '15%',
+            bottom: '10%',
             border: '2px solid #E0E0E0',
             background: '#fff',
             overflow: 'auto',
@@ -111,38 +111,48 @@ export default function AddTask(props) {
           <Toaster />
           <h1 className={styles.head}>
             <div className='text-center'>
-              Add task to <bn className={styles.hv}>Tasks</bn>
+              Add task to <b className={styles.hv}>Tasks</b>
             </div>
             <button className={styles.cl} onClick={props.toggleModal}>
               < Icon icon={<AiOutlineClose size="16" />} />
             </button>
           </h1>
-          <Divider></Divider>
-          <div className='form-div' >
-            <div className='form'>
-              <input id='title' type="text" value={Title} placeholder='Task Title' onChange={(e) => handleInputChange(e)} className={styles.form} />
-              <br />
-              <div className={styles.inp}>
+          <Divider />
+          <div className='form'>
+            <input id='title' type="text" value={Title} placeholder='Task Title' onChange={(e) => handleInputChange(e)} className={styles.form} />
+            <br />
+            <div className={styles.inp}>
+              <div className='flex flex-row justify-between mr-0'>
                 <label htmlFor="estimate_minutes" className='px-10'>Minutes</label>
                 <input id='estimate_minutes' type="text" placeholder='mm' value={Duration_Minutes} onChange={(e) => handleInputChange(e)} />
-                <br />
+              </div>
+              <br />
+              <div className='flex flex-row justify-between mr-0'>
                 <label htmlFor="estimate_hours" className='px-10'>Hours</label>
                 <input id='estimate_hours' type="text" placeholder='hh' value={Duration_Hours} onChange={(e) => handleInputChange(e)} />
-                <br />
+              </div>
+              <br />
+              <div className='flex flex-row justify-between mr-16'>
                 <label htmlFor="start" className='px-10'>Start</label>
                 <input id='start' type="date" value={Start} onChange={(e) => handleInputChange(e)} />
-                <br />
+              </div>
+              <br />
+              <div className='flex flex-row justify-between mr-16'>
                 <label htmlFor="due" className='px-10'>Due</label>
                 <input id='due' type="date" value={Due} onChange={(e) => handleInputChange(e)} />
-                <br />
+              </div>
+              <br />
+              <div className='flex flex-row justify-between mr-0'>
                 <label htmlFor="description" className='px-10'>Description</label>
                 <input id='description' type="textarea" value={Description} placeholder='Add Description' onChange={(e) => handleInputChange(e)} />
-                <br />
               </div>
+              <br />
+            </div>
+            <div className='flex justify-evenly'>
               <button type="cancel" onClick={props.toggleModal} className={styles.btn}>Cancel</button>
               <button onClick={() => handleSubmit()} className={styles.btn}>Add</button>
-
             </div>
+
           </div>
         </div>
 
