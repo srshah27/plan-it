@@ -4,6 +4,11 @@ import HomePg from '../components/HomePg'
 import Head from 'next/head'
 import { useSession } from "next-auth/react"
 import Router from 'next/router';
+import toast, { Toaster } from 'react-hot-toast';
+
+
+const notify = () => toast.success('Welcome to PlanIT!');
+import Head from 'next/head'
 
 export default function Index() {
   useEffect(() => {
@@ -22,7 +27,7 @@ export default function Index() {
     }
   }, [])
   
-  const notify = () => {const notify = new Notification("Planned IT!")}
+  const check = () => {const notify = new Notification("Planned IT!")}
   const { data: session, status } = useSession()
   if(session){
     console.log(session);
@@ -35,7 +40,8 @@ export default function Index() {
     <div className="flex-col">
       <NavBar />
       <HomePg />
-    <button onClick={notify} > Notify</button>
+      <Toaster />
+    <button onClick={() =>{notify(); check()}} > Notify</button>
     </div>
     </>
   )

@@ -28,7 +28,7 @@ export default function Register() {
 
   const handleSubmit = async () => {
     if (password == confirmPassword && password.length >= 8 && email.includes('@')) {
-      let result = await fetch('api/register', {
+      let result = await fetch('/api/register', {
         body: JSON.stringify({
           name,
           email,
@@ -41,6 +41,7 @@ export default function Register() {
         method: 'POST',
       })
       if (result.status == 200) {
+        console.log("done");
         window.location.href = '/api/auth/signin';
       }
       if (result.status == 400) {
