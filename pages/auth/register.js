@@ -6,6 +6,7 @@ import toast, { Toaster } from 'react-hot-toast';
 import { useRouter } from 'next/router'
 import Image from 'next/image';
 import Planit from '../../public/img/Planit.svg'
+import Link from 'next/link'
 export default function Register() {
   const [name, setName] = useState('');
   const [error, setError] = useState('');
@@ -71,12 +72,12 @@ export default function Register() {
       <Toaster />
       <nav>
         <div>
-          <h3 className='text-center text-6xl text-custom-green mt-14' >Register Here!</h3>
+          <h3 className='text-center text-6xl text-custom-green mt-14 underline' >Register Here!</h3>
         </div>
       </nav>
       <div className='flex flex-row justify-around'>
         <div className={styles.image}>
-          <Image src={Planit} />
+          <Link href = "/"><Image src={Planit} /></Link>
           <h3 className='text-center text-5xl text-custom-green mb-10' >Join Us </h3>
           <h className={styles.text}> Let us save time together! </h>
         </div>
@@ -110,6 +111,9 @@ export default function Register() {
             {(error != '') ? <p>{error}</p> : null}
           </div>
           <button onClick={() => handleSubmit()} type="submit" className={styles.btn}>Register</button>
+          <h3 className='text-center mb-2'>
+         Already registered? <bn className = {styles.hv}><Link href = "/api/auth/signin">Sign In</Link> </bn>here.
+          </h3>
         </div>
       </div>
     </>
