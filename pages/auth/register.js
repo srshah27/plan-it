@@ -76,7 +76,7 @@ export default function Register() {
       </nav>
       <div className='flex flex-row justify-around'>
         <div className={styles.image}>
-          <Image src={Planit}/>
+          <Image src={Planit} />
           <h3 className='text-center text-5xl text-custom-green mb-10' >Join Us </h3>
           <h className={styles.text}> Let us save time together! </h>
         </div>
