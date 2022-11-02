@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import { FiCheckSquare } from 'react-icons/fi';
+import { IoMdCheckmark } from 'react-icons/io';
+import { MdDelete } from 'react-icons/md'
 import { FaChevronDown, FaChevronRight, FaPlus } from 'react-icons/fa';
 import AddTask from './AddTask';
 import ViewTask from './ViewTask';
@@ -7,6 +9,7 @@ import { useSession } from "next-auth/react"
 import toast, { Toaster } from 'react-hot-toast';
 import Link from 'next/link'
 import useSWR from 'swr'
+import styles from "../styles/SideBar.module.css";
 const fetcher = (...args) => fetch(...args).then((res) => res.json())
 
 
@@ -34,10 +37,10 @@ const ChannelBar = (props) => {
       today.push(task)
     }
   });
-  
+
   today.sort((a, b) => a.Duration - b.Duration)
   today.sort((a, b) => b.Priority - a.Priority)
-  
+
   let todaySet = new Set(today)
   today = Array.from(todaySet)
   // console.log(today);
@@ -61,7 +64,7 @@ const Dropdown = ({ header, tasks, date }) => {
 
     <div className='dropdown-selection'>
       <button onClick={() => { setViewTaskVisible(true) }}>
-        <FiCheckSquare size='18' className='text-gray-400 mr-2' />
+        <FaChevronRight size='18' className='text-gray-400 mr-2' />
         <h5 className='dropdown-selection-text'>{task.Title}</h5>
       </button>
       <ViewTask modalIsOpen={viewTaskVisible} toggleModal={() => { setViewTaskVisible(false) }} task={task} />
@@ -114,17 +117,27 @@ const Dropdown = ({ header, tasks, date }) => {
         // tasks.map((task, i) => <TopicSelection key={i} task={task} />)}
         tasks.map((task, i) => (
 
-          <div key={i} className='dropdown-selection'>
-            <FiCheckSquare size='18' className='text-gray-400 mr-2' />
-            <h5 className='dropdown-selection-text'>{task.Title}</h5>
-            <button onClick={() => { setCObjectId(task._id) }}>Done</button>
-            <h5 className='dropdown-selection-text'>{task.Description}</h5>
-            <button onClick={() => { setDObjectId(task._id) }}>Delete</button>
-            <h5 className='dropdown-selection-text'>{task.Duration} Minutes</h5>
-            <input type="number" value={task.Priority} onChange={(e) => {console.log("heya, " + e.target.value) ; setPObjectId([task._id, e.target.value])}}  min="0" max="3" ></input>
+          <div key={i} className='dropdown-selection justify-between' >
+            <div className='flex'>
+              <FaChevronRight size='18' className='text-gray-700 mr-2 -ml-2' />
+              <h5 className='dropdown-selection-text'>{task.Title}</h5>
+            </div>
+            <div className='flex  items-center justify-evenly '>
+              <button onClick={() => { setCObjectId(task._id) }}><Icon icon={<IoMdCheckmark size="20" />} /></button>
+              {/* <h5 className='dropdown-selection-text'>{task.Description}</h5> */}
+              <button onClick={() => { setDObjectId(task._id) }}><Icon icon={<MdDelete size="20" />} /></button>
+              <h5 className='dropdown-selection-text'>{task.Duration} m</h5>
+              {/* <input type="number" value={task.Priority} onChange={(e) => { console.log("heya, " + e.target.value); setPObjectId([task._id, e.target.value]) }} min="0" max="3" ></input> */}
+              <select name="priority" id="priority" value={task.Priority} onChange={(e) => { console.log("heya, " + e.target.value); setPObjectId([task._id, e.target.value]) }} >
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+              </select>
+            </div>
           </div>
-        ))}
-    </div>
+        ))
+      }
+    </div >
   );
 };
 
@@ -136,7 +149,11 @@ const ChevronIcon = ({ expanded }) => {
     <FaChevronRight size='14' className={chevClass} />
   );
 };
-
+const Icon = ({ icon }) => (
+  <div className={["group", styles.icon].join(" ")}>
+    {icon}
+  </div>
+);
 const CurDate = () => (
 
   <div className='channel-block'>
