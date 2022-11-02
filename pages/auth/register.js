@@ -71,18 +71,24 @@ export default function Register() {
             </div>
             <div className={styles.email}>
               <input type="email" id="email" className={styles.form_input} value={email} onChange={(e) => handleInputChange(e)} placeholder="Email" />
+              <div className= {styles.warning}>
+              {(email != '' && !email.includes('@')) ? <p>Invalid Email</p> : null}
+              </div>
             </div>
             <div className={styles.password}>
               <input className={styles.form_input} type="password" id="password" value={password} onChange={(e) => handleInputChange(e)} placeholder="Password" />
+              <div className= {styles.warning}>
+            {(password != '' && password.length < 8) ? <p>Password Length should be more than 8</p> : null}
+              </div>
             </div>
             <div className={styles.confirmpassword}>
               <input className={styles.form_input} type="password" id="confirmPassword" value={confirmPassword} onChange={(e) => handleInputChange(e)} placeholder="Confirm Password" />
+              <div className= {styles.warning}>
+              {(password != '' && confirmPassword != '' && password != confirmPassword) ? <p>Password does not match</p> : null}
+              </div>
             </div>
           </div>
-          <div>
-            {(email != '' && !email.includes('@')) ? <p>Invalid Email</p> : null}
-            {(password != '' && password.length < 8) ? <p>Password Length should be more than 8</p> : null}
-            {(password != '' && confirmPassword != '' && password != confirmPassword) ? <p>Password and Confirm Password do not match</p> : null}
+          <div className= {styles.warning}>
             {(error != '') ? <p>{error}</p> : null}
           </div>
             <button onClick={() => handleSubmit()} type="submit" className= {styles.btn}>Register</button>

@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import NavBar from '../components/NavBar'
 import HomePg from '../components/HomePg'
+import Head from 'next/head'
 import { useSession } from "next-auth/react"
 import Router from 'next/router';
 
@@ -27,11 +28,15 @@ export default function Index() {
     console.log(session);
   }
   return (
-    // <div>index</div>
+    <>
+    <Head>
+          <title>Home | Plan IT!</title>
+    </Head>
     <div className="flex-col">
       <NavBar />
       <HomePg />
     <button onClick={notify} > Notify</button>
     </div>
+    </>
   )
 }

@@ -47,3 +47,10 @@
     width:20%;
     height:5%;
 }
+
+.warning{
+    @apply
+    text-red-500
+    text-center
+    text-2xl
+}
