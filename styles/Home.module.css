@@ -27,8 +27,9 @@
   }
 
 .homepg {
-  @apply flex flex-row items-center align-middle
+  @apply flex flex-row items-center justify-evenly
   mt-12 mr-52 ml-20;
+  height: 100vh;
 }
 
 .Heading1 {
