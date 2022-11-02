@@ -30,6 +30,7 @@ const NavBar = () => {
   
   return (
     <div className={styles.topnavigation} >
+    
       <Image
         src={Planit}
         width="110px"

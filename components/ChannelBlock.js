@@ -3,10 +3,11 @@ import { FiCheckSquare } from 'react-icons/fi';
 import { FaChevronDown, FaChevronRight, FaPlus } from 'react-icons/fa';
 import AddTask from './AddTask';
 import { useSession } from "next-auth/react"
+import toast, { Toaster } from 'react-hot-toast';
 import Link from 'next/link'
 
 
-
+const taskAdded = () => toast("Task Added")
 
 const ChannelBar = (props) => {
   const { data: session, status } = useSession()
@@ -45,6 +46,7 @@ const Dropdown = ({ header, selections, date }) => {
   const [addTaskVisible, setAddTaskVisible] = useState(false);
   return (
     <div className='dropdown'>
+      <Toaster />
       <div className='flex flex-col'>
         <div className='dropdown-header'>
           {/* <ChevronIcon expanded={expanded} /> */}

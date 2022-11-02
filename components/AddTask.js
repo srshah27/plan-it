@@ -5,8 +5,10 @@ import { useState } from 'react'
 Modal.setAppElement('#__next')
 import styles from '../styles/Task.module.css'
 import { AiOutlineClose } from 'react-icons/ai';
+import toast, { Toaster } from 'react-hot-toast';
 
-const notify = () => {const notify = new Notification("Planned IT!")}
+
+const notify = () => { const notify = new Notification("Planned IT!") }
 
 export default function AddTask(props) {
 
@@ -16,12 +18,12 @@ export default function AddTask(props) {
   const [Title, setTitle] = useState('');
   const [Duration_Minutes, setDuration_Minutes] = useState('15');
   const [Duration_Hours, setDuration_Hours] = useState('0');
-  
+
   let d = new Date()
-  if(props.date){
+  if (props.date) {
     d = new Date(props.date)
   }
-  
+
   d.setMinutes(d.getMinutes() - d.getTimezoneOffset());
   const [Due, setDue] = useState(d.toJSON().slice(0, 10));
   const [Start, setStart] = useState(d.toJSON().slice(0, 10));
@@ -38,8 +40,10 @@ export default function AddTask(props) {
       }),
     });
     const data = await res.json();
-    if(data){
+    if (data) {
       const notify = new Notification(`Task Added: ${Title}`)
+      props.taskadded();
+
     }
     console.log(data);
     console.log("Sent");
@@ -98,6 +102,7 @@ export default function AddTask(props) {
         }}
       >
         <div>
+        <Toaster/>
           <h1 className={styles.head}>
             <div>
               Add task to <bn className={styles.hv}>Tasks</bn>
@@ -106,31 +111,31 @@ export default function AddTask(props) {
               < Icon icon={<AiOutlineClose size="16" />} />
             </button>
           </h1>
-            <Divider></Divider>
+          <Divider></Divider>
           <div className='form-div' >
-            <div className = 'form'>
-              <input id='title' type="text" value={Title} placeholder='Task Title' onChange={(e) => handleInputChange(e)}  className={styles.form}/>
+            <div className='form'>
+              <input id='title' type="text" value={Title} placeholder='Task Title' onChange={(e) => handleInputChange(e)} className={styles.form} />
               <br />
               <div className={styles.inp}>
-              <label htmlFor="estimate_minutes" className='px-10'>Minutes</label>
-              <input id='estimate_minutes' type="text" placeholder = 'mm' value={Duration_Minutes} onChange={(e) => handleInputChange(e)} />
-              <br />
-              <label htmlFor="estimate_hours" className='px-10'>Hours</label>
-              <input id='estimate_hours' type="text" placeholder = 'hh' value={Duration_Hours} onChange={(e) => handleInputChange(e)} />
-              <br />
-              <label htmlFor="start" className='px-10'>Start</label>
-              <input id='start' type="date"  value={Start} onChange={(e) => handleInputChange(e)} />
-              <br />
-              <label htmlFor="due" className='px-10'>Due</label>
-              <input id='due' type="date" value={Due} onChange={(e) => handleInputChange(e)} />
-              <br />
-              <label htmlFor="description" className='px-10'>Description</label>
-              <input id='description' type="textarea" value={Description} placeholder='Add Description' onChange={(e) => handleInputChange(e)} />
-              <br />
+                <label htmlFor="estimate_minutes" className='px-10'>Minutes</label>
+                <input id='estimate_minutes' type="text" placeholder='mm' value={Duration_Minutes} onChange={(e) => handleInputChange(e)} />
+                <br />
+                <label htmlFor="estimate_hours" className='px-10'>Hours</label>
+                <input id='estimate_hours' type="text" placeholder='hh' value={Duration_Hours} onChange={(e) => handleInputChange(e)} />
+                <br />
+                <label htmlFor="start" className='px-10'>Start</label>
+                <input id='start' type="date" value={Start} onChange={(e) => handleInputChange(e)} />
+                <br />
+                <label htmlFor="due" className='px-10'>Due</label>
+                <input id='due' type="date" value={Due} onChange={(e) => handleInputChange(e)} />
+                <br />
+                <label htmlFor="description" className='px-10'>Description</label>
+                <input id='description' type="textarea" value={Description} placeholder='Add Description' onChange={(e) => handleInputChange(e)} />
+                <br />
               </div>
-              <button type="cancel" onClick={props.toggleModal}  className={styles.btn}>Cancel</button>
+              <button type="cancel" onClick={props.toggleModal} className={styles.btn}>Cancel</button>
               <button onClick={() => handleSubmit()} className={styles.btn}>Add</button>
-        
+
             </div>
           </div>
         </div>
