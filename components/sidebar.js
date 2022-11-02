@@ -17,7 +17,7 @@ const SideBar = () => {
                 <Link href="/"><a><SideBarLogo icon={<Image src="/img/Planit.svg" alt='Add' width={90} height={72} />} /></a></Link>
                 <Divider />
                 <button onClick={() => { setAddTaskVisible(true) }}><SideBarIcon icon={<BsPlus size="32" />} text={"Add"} /></button>
-                <AddTask modalIsOpen={addTaskVisible} toggleModal={() => { setAddTaskVisible(false) }} ></AddTask>
+                <AddTask modalIsOpen={addTaskVisible} toggleModal={() => { setAddTaskVisible(false) }}  taskadded={taskAdded }></AddTask>
                 <SideBarIcon icon={<IoMdCheckmark size="32" />} text={"Done"} />
                 <SideBarIcon icon={<BsCalendar2Event size="24" />} text={"View"} />
                 <Divider />
