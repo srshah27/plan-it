@@ -7,7 +7,7 @@
 .form{
     @apply
     border border-custom-green rounded-md
-    bg-gray-50;
+    bg-white;
     /* border-radius: 5px; */
     width: 36%;
     /* margin-left: 50%; */
@@ -75,4 +75,10 @@
     text-custom-green
     text-center
 
+}
+.hv{
+    @apply underline
+}
+.hv:hover {
+    @apply text-custom-blue
 }

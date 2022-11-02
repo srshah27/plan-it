@@ -9,8 +9,8 @@ const Home = () => {
             <About />
             <Image
                 src={homepage}
-                width="750px"
-                height="700px"
+                width="950px"
+                height="900px"
             />
         </div>
     );

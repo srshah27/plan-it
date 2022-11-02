@@ -21,14 +21,14 @@
 .topnavigation {
     @apply flex flex-row items-center justify-evenly 
     bg-custom-white bg-opacity-90 
-    w-full h-20 
+    w-screen h-20 
     m-0 
     shadow-lg;
   }
 
 .homepg {
   @apply flex flex-row items-center align-middle
-  mt-20 mr-52 ml-20;
+  mt-12 mr-52 ml-20;
 }
 
 .Heading1 {
@@ -42,3 +42,21 @@
     mr-auto ml-36 my-auto text-left mt-6
     transition duration-300 ease-in-out;
   }
+
+.scroll{
+  @apply overflow-y-scroll float-right h-screen scroll-m-1
+
+}
+
+.footersize {
+    @apply flex flex-row items-center justify-evenly 
+    bg-gray-600
+    mt-16
+    w-full h-40
+    shadow-lg;
+}
+
+.names{
+  @apply text-xl text-teal-200
+  
+}
