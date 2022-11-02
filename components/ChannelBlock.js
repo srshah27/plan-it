@@ -95,7 +95,7 @@ const Dropdown = ({ header, tasks, date }) => {
   }
 
   return (
-    <div className='dropdown'>
+    <div className='dropdown mt-2'>
       <Toaster />
       <div className='flex flex-col'>
         <div className='dropdown-header'>
