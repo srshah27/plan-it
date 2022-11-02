@@ -58,7 +58,7 @@ export default function DoneTask(props) {
         <Toaster/>
           <h1 className={styles.head}>
             <div>
-               Completed <bn className={styles.hv}>Tasks</bn>
+               Completed Tasks
             </div>
             <button className={styles.cl} onClick={props.toggleModal}>
               < Icon icon={<AiOutlineClose size="16" />} />
