@@ -16,14 +16,14 @@ export default function Home() {
   const [Tasks, setTasks] = useState(null);
   const fetchTasks = () => {
     fetch(`/api/getTasks?email=${session?.user?.email}`)
-    .then((response) => {
-      return response.json()
-    })
-    .then((data) => ( setTasks(data?.tasks)))
+      .then((response) => {
+        return response.json()
+      })
+      .then((data) => (setTasks(data?.tasks)))
   };
   let today = new Date()
   let { $ } = router.query
-  if($){
+  if ($) {
     today = new Date($)
   }
   fetchTasks()
@@ -32,16 +32,16 @@ export default function Home() {
   return (
     <div>
       <div className='appview'>
-        <SideBar /> 
-        {/* <ContentContainer /> */}
         <TopNavigation />
+        <SideBar />
+        {/* <ContentContainer /> */}
       </div>
       <div className='flex flex-row ml-20' >
         <div>
           <hr />
           <InfiniteScroll
             dataLength={100}
-            next={() => {return(<ChannelBar date={today} inc={11} />)}}
+            next={() => { return (<ChannelBar date={today} inc={11} />) }}
             hasMore={true}
             loader={<h4>View</h4>} className='flex flex-row'
           >
