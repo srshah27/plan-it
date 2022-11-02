@@ -32,31 +32,56 @@
 }
 
 .Heading1 {
-    @apply text-6xl text-teal-500 
-    mr-auto ml-36 my-auto font-extrabold text-left
+    @apply text-6xl text-custom-green 
+    mr-auto ml-28 my-auto font-extrabold text-left
     transition duration-300 ease-in-out;
   }
 
 .Heading2 {
     @apply text-3xl text-black
-    mr-auto ml-36 my-auto text-left mt-6
+    mr-auto ml-28 my-auto text-left mt-6
     transition duration-300 ease-in-out;
   }
 
 .scroll{
-  @apply overflow-y-scroll float-right h-screen scroll-m-1
+  @apply overflow-y-scroll float-right h-screen scroll-m-1 border-spacing-2
 
 }
 
 .footersize {
     @apply flex flex-row items-center justify-evenly 
-    bg-gray-600
+    bg-custom-gray
     mt-16
-    w-full h-40
+    w-full h-52
     shadow-lg;
 }
 
 .names{
-  @apply text-xl text-teal-200
+  @apply text-lg text-gray-700
   
 }
+
+.sidebaricon {
+    @apply flex items-center justify-center 
+    h-12 w-12 mt-2 mb-2 mx-auto  
+    bg-custom-cream2 hover:bg-custom-green
+    text-[#009B9A] hover:text-[#F5F5F5]
+    hover:rounded-xl rounded-3xl
+    transition-all duration-300 ease-linear
+    cursor-pointer shadow-lg ;
+  }
+  
+  .sidebar-logo {
+    @apply flex items-center justify-center 
+    h-12 w-12 mt-2 mb-2 mx-auto  
+    text-custom-green hover:text-gray-700
+    transition-all duration-300 ease-linear
+    cursor-pointer ;
+  }
+
+  .sidebartooltip {
+    @apply absolute w-auto p-2 m-2 min-w-max left-14 rounded-md shadow-md
+    text-custom-cream bg-custom-green
+    text-xs font-bold 
+    transition-all duration-100 scale-0 origin-left;
+  }
