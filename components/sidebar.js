@@ -11,7 +11,7 @@ const SideBar = () => {
     const [addTaskVisible, setAddTaskVisible] = useState(false);
     return (
         <div>
-            <div className="top-0 left-0 h-screen w-16 flex flex-col flex-start
+            <div className="fixed top-0 left-0 h-screen w-16 flex flex-col flex-start
                   bg-custom-cream shadow-lg">
 
                 <Link href="/"><a><SideBarLogo icon={<Image src="/img/Planit.svg" alt='Add' width={90} height={72} />} /></a></Link>
