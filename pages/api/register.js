@@ -21,6 +21,6 @@ export default async function handler(req, res) {
   }
   console.log("123done");
   let user = await Users.create({email, password: await hash(password, 10), name, image: `https://avatars.dicebear.com/api/avataaars/${name}.svg`});
-  res.status(200);
+  res.status(200).send({message: "User Added"});
   
 }

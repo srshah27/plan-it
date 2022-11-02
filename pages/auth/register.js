@@ -2,13 +2,15 @@ import React from 'react'
 import Head from 'next/head'
 import styles from '../../styles/Register.module.css'
 import { useState } from 'react'
+import toast, { Toaster } from 'react-hot-toast';
+import { useRouter } from 'next/router'
 export default function Register() {
   const [name, setName] = useState('');
   const [error, setError] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
-
+  const router = useRouter()
 
   const handleInputChange = (e) => {
     const { id, value } = e.target;
@@ -25,7 +27,12 @@ export default function Register() {
       setConfirmPassword(value);
     }
   }
-
+  
+  const redirect = () => {
+    setTimeout(() => {
+      router.push('/api/auth/signin')
+    }, 1500);
+  }
   const handleSubmit = async () => {
     if (password == confirmPassword && password.length >= 8 && email.includes('@')) {
       let result = await fetch('/api/register', {
@@ -41,8 +48,8 @@ export default function Register() {
         method: 'POST',
       })
       if (result.status == 200) {
-        console.log("done");
-        window.location.href = '/api/auth/signin';
+        toast.success('Registered Successfully');
+        redirect()
       }
       if (result.status == 400) {
         // console.log(await result.json().mesasge);
@@ -59,6 +66,7 @@ export default function Register() {
         <Head>
           <title>Register | Plan IT!</title>
         </Head>
+        <Toaster />
         <nav>
           <div>
             <h3 className='text-center text-6xl text-custom-green mt-14' >Register Here!</h3>
