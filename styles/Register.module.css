@@ -6,15 +6,15 @@
 
 .form{
     @apply
-    border border-custom-green
-    bg-gray-50;
+    border border-custom-green rounded-md
+    bg-white;
     /* border-radius: 5px; */
     width: 36%;
-    margin-left: 50%;
+    /* margin-left: 50%; */
     margin-top: 6%;
     padding: 0.1%;
-    border-top-left-radius: 14%;
-    border-bottom-left-radius: 14%;
+    /* border-top-left-radius: 14%;
+    border-bottom-left-radius: 14%; */
     height: 60%
     /* height: 600px; */
 }
@@ -22,7 +22,6 @@
 .formbody{
     @apply text-base;
     text-align: center;
-    padding: 1%;
 }
 
 .formbody > *{
@@ -62,4 +61,24 @@
     text-red-500
     text-center
     text-sm
+}
+
+.image{
+    margin-top: 4%;
+    margin-left: 4%;
+    width: 14%;
+    height: 14%;
+    text-align: center;
+}
+.text{
+    @apply text-lg
+    text-custom-green
+    text-center
+
+}
+.hv{
+    @apply underline
+}
+.hv:hover {
+    @apply text-custom-blue
 }
