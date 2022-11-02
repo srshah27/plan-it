@@ -25,7 +25,7 @@ const ChannelBar = (props) => {
   let today = [];
   props.task?.forEach(task => {
     let taskDate = new Date(task?.Start)
-    if (date.getDate() == taskDate.getDate()) {
+    if(date.getDate() == taskDate.getDate()){
       today.push(task)
     }
   });
@@ -33,15 +33,14 @@ const ChannelBar = (props) => {
   today = Array.from(todaySet)
   // console.log(today);
 
-  return (
-    <div className='channel-bar m-0 border-r-2 mt-16'>
-      {/* <CurDate /> */}
-      <Dropdown header={month + ', ' + day} selections={today} date={date} />
-    </div>
-  );
+return (
+  <div className='channel-bar m-0 border-r-2 mt-16'>
+    <Dropdown header={month + ', ' + day} tasks={today} date={ date } />
+  </div>
+);
 };
 
-const Dropdown = ({ header, selections, date }) => {
+const Dropdown = ({ header, tasks, date}) => {
   const [expanded, setExpanded] = useState(true);
   const [addTaskVisible, setAddTaskVisible] = useState(false);
   return (
@@ -57,14 +56,14 @@ const Dropdown = ({ header, selections, date }) => {
               {header}
             </h5>
           </Link>
-          <button onClick={() => { setAddTaskVisible(true) }}><FaPlus size='16' className='text-accent text-opacity-80 my-auto ml-32 mr-2' /></button>
-          <AddTask modalIsOpen={addTaskVisible} toggleModal={() => { setAddTaskVisible(false) }} date={date}></AddTask>
+          <button onClick={() => { setAddTaskVisible(true) }}><FaPlus size='16' className='text-accent text-opacity-80 my-auto ml-40 mr-2' /></button>
+          <AddTask modalIsOpen={addTaskVisible} toggleModal={() => { setAddTaskVisible(false) }} date={ date }></AddTask>
         </div>
         <Divider />
       </div>
       {expanded &&
-        selections &&
-        selections.map((selection, i) => <TopicSelection key={i} selection={selection.Title} />)}
+        tasks &&
+        tasks.map((task, i) => <TopicSelection key={i} task={task} />)}
     </div>
   );
 };
@@ -78,10 +77,10 @@ const ChevronIcon = ({ expanded }) => {
   );
 };
 
-const TopicSelection = ({ selection }) => (
+const TopicSelection = ({ task }) => (
   <div className='dropdown-selection'>
     <FiCheckSquare size='18' className='text-gray-400 mr-2' />
-    <h5 className='dropdown-selection-text'>{selection}</h5>
+    <h5 className='dropdown-selection-text'>{task.Title}</h5>
   </div>
 );
 

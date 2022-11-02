@@ -8,7 +8,6 @@ import toast, { Toaster } from 'react-hot-toast';
 
 
 const notify = () => toast.success('Welcome to PlanIT!');
-import Head from 'next/head'
 
 export default function Index() {
   useEffect(() => {

@@ -11,7 +11,6 @@ import styles from '../styles/SideBar.module.css'
 import useDarkMode from '../hooks/useDarkMode';
 import { useSession } from "next-auth/react"
 import Image from 'next/image';
-import Link from 'next/link'
 const TopNavigation = () => {
 
   let userImage
@@ -55,9 +54,6 @@ const TopNavigation = () => {
 const SideBarLogo = ({ icon, text = 'Plan-it ' }) => (
   <div className="sidebar-logo group">
       {icon}
-      <span className={["group-hover:scale-100", styles.sidebartooltip].join(" ")}>
-          {text}
-      </span>
   </div>
 );
 
