@@ -58,7 +58,7 @@ export default function NotDoneTask(props) {
           <Toaster />
           <h1 className={styles.head}>
             <div>
-              Tasks <h1 className={styles.hv}>Done</h1>
+              Tasks <h1 className={styles.hv}>Not Done</h1>
             </div>
             <button className={styles.cl} onClick={props.toggleModal}>
               < Icon icon={<AiOutlineClose size="16" />} />

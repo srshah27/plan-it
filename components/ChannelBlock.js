@@ -41,6 +41,7 @@ const ChannelBar = (props) => {
 
   today.sort((a, b) => a.Duration - b.Duration)
   today.sort((a, b) => b.Priority - a.Priority)
+  today.sort((a, b) => Number(a.Completed) - Number(b.Completed))
 
   let todaySet = new Set(today)
   today = Array.from(todaySet)
@@ -128,17 +129,17 @@ const Dropdown = ({ header, tasks, date }) => {
             </div>
             <div className='flex  items-center justify-evenly '>
 
-              <button onClick={() => { setCObjectId(task._id) }}><Icon icon={<IoMdCheckmark size="20" />} disabled={ task.Completed } /></button>
-              {/* <h5 className='dropdown-selection-text'>{task.Description}</h5> */}
-              <button onClick={() => { setDObjectId(task._id) }}><Icon icon={<MdDelete size="20" />} /></button>
               <h5 className='dropdown-selection-text mr-4'>{task.Duration} m</h5>
               {/* <input type="number" value={task.Priority} onChange={(e) => { console.log("heya, " + e.target.value); setPObjectId([task._id, e.target.value]) }} min="0" max="3" ></input> */}
-              <select className = 'dropdown-selection-text' name="priority" id="priority" value={task.Priority} onChange={(e) => { console.log("heya, " + e.target.value); setPObjectId([task._id, e.target.value]) }} >
+              <select className = 'dropdown-selection-text' name="priority" id="priority" value={task.Priority} disabled={ task.Completed } onChange={(e) => { console.log("heya, " + e.target.value); setPObjectId([task._id, e.target.value]) }} >
                 <option value="0">0</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
               </select>
+              <button onClick={() => { setCObjectId(task._id) }}><Icon icon={<IoMdCheckmark size="20" />} disabled={ task.Completed } /></button>
+              {/* <h5 className='dropdown-selection-text'>{task.Description}</h5> */}
+              <button onClick={() => { setDObjectId(task._id) }}><Icon icon={<MdDelete size="20" />} /></button>
             </div>
           </div>
         ))

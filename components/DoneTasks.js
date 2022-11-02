@@ -20,7 +20,7 @@ export default function DoneTask(props) {
   Tasks?.forEach(task => {
     doneTasks.push(task)
   });
-  
+
   // let taskDone = Tasks.filter((a) => { if (a.Completed == true) { return (a) } })
 
 
@@ -55,25 +55,26 @@ export default function DoneTask(props) {
         }}
       >
         <div>
-        <Toaster/>
+          <Toaster />
           <h1 className={styles.head}>
             <div>
-               Completed <bn className={styles.hv}>Tasks</bn>
+              Completed <bn className={styles.hv}>Tasks</bn>
             </div>
             <button className={styles.cl} onClick={props.toggleModal}>
               < Icon icon={<AiOutlineClose size="16" />} />
             </button>
           </h1>
           <Divider />
-          {doneTasks?.map((task, i) => {return(
-            <>
-            <div className='flex flex-row justify-between'>
-            <h1 className= {styles.inp2}> {task?.Title}</h1>
-            <h1 className= {styles.inp2}> {task?.Description}</h1>
-            </div>
-            </>)
+          {doneTasks?.map((task, i) => {
+            return (
+              <>
+                <div className='flex flex-row justify-between'>
+                  <h1 className={styles.inp2}> {task?.Title}</h1>
+                  <h1 className={styles.inp2}> {task?.Description}</h1>
+                </div>
+              </>)
           })}
-          
+
 
         </div>
 
