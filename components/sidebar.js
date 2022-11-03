@@ -9,18 +9,20 @@ import toast, { Toaster } from 'react-hot-toast';
 import AddTask from './AddTask';
 import DoneTask from './DoneTasks';
 import NotDoneTask from './NotDoneTasks';
-import {MdOutlinePendingActions} from 'react-icons/md'
+import { MdOutlinePendingActions } from 'react-icons/md'
+import { AiOutlineLeft, AiOutlineRight } from 'react-icons/ai';
 
 
 
-const SideBar = () => {
+const SideBar = (props) => {
     const taskAdded = () => toast.success("Task Added")
     const [addTaskVisible, setAddTaskVisible] = useState(false);
     const [doneTaskVisible, setDoneTaskVisible] = useState(false);
     const [notdoneTaskVisible, setNotDoneTaskVisible] = useState(false);
+    let today = props.today;
     return (
         <div>
-        <Toaster />
+            <Toaster />
             <div className="fixed top-0 left-0 h-screen w-16 flex flex-col flex-start
                   bg-custom-cream shadow-lg">
 

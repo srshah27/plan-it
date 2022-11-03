@@ -36,7 +36,7 @@ export default function Home() {
   return (
     <div>
       <div className='appview'>
-        <TopNavigation />
+        <TopNavigation today={today}/>
         <SideBar />
         {/* <ContentContainer /> */}
       </div>
@@ -49,6 +49,7 @@ export default function Home() {
             hasMore={true}
             loader={<h4>View</h4>} className='flex flex-row'
           >
+            <ChannelBar date={today} inc={-1} task={Tasks} />
             <ChannelBar date={today} inc={0} task={Tasks} />
             <ChannelBar date={today} inc={1} task={Tasks} />
             <ChannelBar date={today} inc={2} task={Tasks} />

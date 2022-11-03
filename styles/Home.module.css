@@ -40,13 +40,13 @@
 
 .Heading2 {
     @apply text-3xl text-black
-    mr-auto ml-28 my-auto text-left mt-6
+    mr-auto ml-28 my-auto text-left mt-6 mb-2
     transition duration-300 ease-in-out;
   }
 
 .content{
-  @apply text-lg text-black 
-  ml-0 text-left mt-12 my-auto mr-10
+  @apply text-lg text-black text-justify
+  ml-0 mt-12 my-auto mr-10
 
 }
 
