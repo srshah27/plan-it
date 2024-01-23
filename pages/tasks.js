@@ -21,6 +21,6 @@ export default function Tasks() {
         <AddTask modalIsOpen={addTaskVisible} toggleModal={ () => { setAddTaskVisible(false) } } ></AddTask>
       </main>
 
-    </div>
+    </div>v>
   )
 }
