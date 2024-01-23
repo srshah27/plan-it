@@ -11,7 +11,12 @@ import styles from '../styles/SideBar.module.css'
 import useDarkMode from '../hooks/useDarkMode';
 import { useSession } from "next-auth/react"
 import Image from 'next/image';
-const TopNavigation = () => {
+import { AiOutlineLeft, AiOutlineRight } from 'react-icons/ai';
+
+import { useRouter } from 'next/router';
+const TopNavigation = (props) => {
+  let router = useRouter();
+  let today = props.today;
 
   let userImage
   const { data: session, status } = useSession()
@@ -24,8 +29,10 @@ const TopNavigation = () => {
 
       {/* <HashtagIcon /> */}
       {/* <div className=''> */}
-      <div className='flex min-w-fit ml-24'>
+      <div className='flex min-w-fit ml-24 items-center'>
+        {/* <button onClick={() => { router.push('?$=') }} className='p-5'><SideBarIcon icon={<AiOutlineLeft size="16" />} text={"Add"} /></button> */}
         <Title />
+        {/* <button onClick={() => { setAddTaskVisible(true) }} className='p-5'><SideBarIcon icon={<AiOutlineRight size="16" />} text={"Add"} /></button> */}
       </div>
       {/* </div> */}
       {/* <div className='@apply flex justify-items-end'> */}
@@ -57,6 +64,15 @@ const TopNavigation = () => {
 const SideBarLogo = ({ icon, text = 'Plan-it ' }) => (
   <div className="sidebar-logo group">
     {icon}
+  </div>
+);
+
+const SideBarIcon = ({ icon, text }) => (
+  <div className={["group", styles.sidebaricon].join(" ")}>
+    {icon}
+    {/* <span className={["group-hover:scale-100", styles.sidebartooltip].join(" ")}>
+      {text}
+    </span> */}
   </div>
 );
 

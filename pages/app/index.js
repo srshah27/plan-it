@@ -36,7 +36,7 @@ export default function Home() {
   return (
     <div>
       <div className='appview'>
-        <TopNavigation />
+        <TopNavigation today={today}/>
         <SideBar />
         {/* <ContentContainer /> */}
       </div>

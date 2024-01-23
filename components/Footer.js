@@ -21,17 +21,17 @@ const Footer = () => {
             </div> */}
             <div className={styles.names}>
                 <h5 className='text-2xl text-custom-green font-semibold'>Group members:</h5>
-                <h5>Dhara Shah</h5>
                 <h5>Alefiya Rampurawala</h5>
                 <h5>Snehil Shah</h5>
                 <h5>Aditya Sawant</h5>
+                <h5>Dhara Shah</h5>
             </div>
             <div className={styles.names}>
                 <h5 className='text-2xl text-custom-green font-semibold'>Contact Us:</h5>
-                <h5>dhara.shah15875@sakec.ac.in</h5>
                 <h5>alefiya.rampurawala15491@sakec.ac.in</h5>
                 <h5>snehil.shah15485@sakec.ac.in</h5>
                 <h5>aditya.sawant15529@sakec.ac.in</h5>
+                <h5>dhara.shah15875@sakec.ac.in</h5>
             </div>
             <div className='flex flex-col'>
                 <Icon icon={<BsGithub size="32" />} text={"GitHub"} />

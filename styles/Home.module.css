@@ -27,8 +27,9 @@
   }
 
 .homepg {
-  @apply flex flex-row items-center align-middle
+  @apply flex flex-row items-center justify-evenly
   mt-12 mr-52 ml-20;
+  height: 100vh;
 }
 
 .Heading1 {
@@ -39,9 +40,15 @@
 
 .Heading2 {
     @apply text-3xl text-black
-    mr-auto ml-28 my-auto text-left mt-6
+    mr-auto ml-28 my-auto text-left mt-6 mb-2
     transition duration-300 ease-in-out;
   }
+
+.content{
+  @apply text-lg text-black text-justify
+  ml-0 mt-12 my-auto mr-10
+
+}
 
 .scroll{
   @apply overflow-y-scroll float-right h-screen scroll-m-1 border-spacing-2
@@ -51,7 +58,6 @@
 .footersize {
     @apply flex flex-row items-center justify-evenly 
     bg-custom-gray
-    mt-16
     w-full h-52
     shadow-lg;
 }
@@ -85,3 +91,16 @@
     text-xs font-bold 
     transition-all duration-100 scale-0 origin-left;
   }
+
+.aboutSize{
+  @apply bg-custom-green h-32 top-40 text-5xl text-custom-cream2
+}
+
+.aboutUs{
+  @apply flex flex-row
+}
+
+.desc{
+  @apply text-9xl text-custom-green 
+    mr-auto ml-28 font-extrabold text-left mt-20 mb-20
+}
